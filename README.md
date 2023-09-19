@@ -1,2 +1,2 @@
-# Cinense-Josh-CV
-My Source Code for my curriculum vitae
+This is a basic curriculum vitae built with HTML and CSS only
+
