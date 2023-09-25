@@ -3,13 +3,13 @@ Welcome to my portfolio website! This website showcases my projects, skills, and
 You can click [here](https://jashins-portfolio.netlify.app) to visit the website.
 
 ## TODO LIST
-- [x] ~~Home
-- [x] ~~Schedule
-- [x] ~~Contacts
-- [x] ~~About Me
-- [x] ~~Resume
-- [ ] Login and Register Functionality
-- [ ] Visitor Tracker
+-  ~~Home~~
+-  ~~Schedule~~
+-  ~~Contacts~~
+-  ~~About Me~~
+-  ~~Resume~~
+-  Login and Register Functionality
+-  Visitor Tracker
 
 ## Table of Contents
 
