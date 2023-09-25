@@ -112,3 +112,20 @@ button:hover {
 .schedule td:hover {
   background-color: #9f79d462;
 }
+
+.contact-terminal-terminal {
+  background-color: #000;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contact-terminal h3 {
+  padding: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-terminal .link {
+  color: #0AF;
+  text-decoration: underline;
+}
