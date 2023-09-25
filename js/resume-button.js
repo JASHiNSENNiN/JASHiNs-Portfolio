@@ -1,9 +1,9 @@
-function openResumeFolder() {
+function openResume() {
     window.open('./pages/resume.html', '_blank');
 }
 
 function downloadResume() {
-const fileUrl = './data/resume.pdf';
+const fileUrl = './data/Cinense-Josh-V-resume.pdf';
 const fileName = 'Cinense-Josh-V-resume.pdf';
 
 fetch(fileUrl)
