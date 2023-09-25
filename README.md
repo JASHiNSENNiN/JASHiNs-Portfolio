@@ -25,7 +25,8 @@ Welcome to my portfolio website! This website showcases my skills, projects, and
 
 ## About Me
 The Home section serves as the landing page of my portfolio. Here, you can get a glimpse of my expertise. Feel free to navigate through different sections using the navigation bar at the top.
-ts/95284497/764e38ba-91c3-46fa-af86-81d858cb4e9e)
+![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/84a39d7c-3af9-4eea-a751-f923d2a5eb8c)
+
 
 ## Schedule
 In the Schedule section, you can find information about my availability, whether I am in a class or not. If you're interested in working together, this section provides details on how to schedule a meeting or get in touch with me.
