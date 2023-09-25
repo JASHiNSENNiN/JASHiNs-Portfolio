@@ -36,7 +36,8 @@ In the Schedule section, you can find information about my availability, whether
 
 ## Contacts
 The Contacts section contains various ways to get in touch with me. You'll find links to my social media profiles, including Facebook, Discord, and GitHub. Additionally, you can reach out to me via email using the provided contact information. Don't hesitate to connect with me — I'd love to hear from you!
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/70283b4d-597e-44f4-aef2-946c3af969b4)
+![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/455f54ba-8f0a-4cc0-829a-3f5f90145dbf)
+
 
 
 
