@@ -125,7 +125,14 @@ button:hover {
   margin-bottom: 20px;
 }
 
-.contact-terminal .link {
-  color: #0AF;
-  text-decoration: underline;
+.footer {
+  background-color: #2f394b;
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.license {
+  margin-top: 10px;
 }
