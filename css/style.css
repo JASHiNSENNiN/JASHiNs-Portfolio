@@ -1,327 +1,160 @@
-body
-{
-    font-family: 'Montserrat', sans-serif;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    max-width: 1200px;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
+
+body {
+    font-family: Fira Code;
+    background: var(--background, #282C33);
+    color: #ddd;
+    margin: 0;
 }
 
-.sidebar
-{
-    width: 370px;
-    background-color: #1E2939;
-    color: #ffff;
-    margin-right: 20px;
-    padding-top: 40px;
-}
-
-.sidebar .content
-{
-    margin-top: 50px;
-    margin-left: 40px;
-}
-
-.contacts .phone-number
-{
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-}
-
-.contacts .email
-{
-    color: white;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    text-decoration: underline;
-    line-height: 24px;
-}
-
-.sidebar .contacts h3
-{
-    margin: 0px 0px 8px 0px;
-    color: white;
-    font-size: 22px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word;
-}
-
-.sidebar .contacts p
-{
-    margin: 8px 0px 0px 0px;
-    color: white;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word;
-}
-
-.sidebar > .tech-skills, .soft-skills
-{
-    margin: 47px 0px 0px 0px;
-}
-
-.soft-skills ul, .tech-skills ul
-{
-    list-style:  none;
-    padding-left: 0px;
-}
-
-.soft-skills ul li::before, .tech-skills ul li::before
-{
-    content: "\2022";
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    color: #FB6D3A;
+.cursor {
     display: inline-block;
-    width: 10px;
+    width: 8px;
+    height: 20px;
+    background-color: #ffffff; /* Adjust the cursor color */
+    animation: blink 0.8s infinite; /* Add blinking animation */
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.console {
+    white-space: pre;
 }
 
-.soft-skills ul li, .tech-skills ul li
+#welcome_screen
 {
-    color: white;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word;
-    list-style: none;
-    padding-left: 0px;
+    padding-top: 240px;
 }
 
-.main-content
+#home
 {
-    width: calc(100% - 370px);
-    margin-left: 20px;
-    padding: 102px 217px 107px 88px;
+    text-align: center;
+    padding: 80px;
 }
 
-.summary
+#aboutme,
+#schedule,
+#contact
 {
-    margin-bottom: 40px;
+  padding: 50px;
+  width: 95%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.summary > h4
+.aboutme p
 {
-    margin: 0;
-    color: black;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word
+  padding: 5px;
 }
 
-.summary > h2
+h2
 {
-    margin: 19px 0px 24px 0px;
-    color: black;
-    font-size: 45px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word
+  color: #bd93f9;
 }
 
-.summary > p
-{
-    margin: 0;
-    color: #595959;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #bd93f9;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.bracket
-{
-    color: black;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 700;
-    line-height: 24px;
-    word-wrap: break-word
+.download-button {
+  font-family: Fira Code;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #bd93f9;
+  color: #bd93f9;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.certificates h3
-{
-    margin: 0px;
+.download-button:hover {
+  background-color: #bd93f9;
+  color: #fff;
 }
 
-.certificates > ol
-{
-    margin: 8 0 1.5em 0px;
-    padding: 0;
-    counter-reset: item;
+.schedule table {
+  border-collapse: collapse;
+  margin: 50px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-ol > li
-{
-    margin: 0;
-    padding: 0 0 0 2em;
-    text-indent: -2em;
-    list-style-type: none;
-    counter-increment: item;
-    color: #595959;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word
+.schedule th,
+.schedule td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
 }
 
-ol > li::before
-{
-    display: inline-block;
-    width: 1em;
-    padding-right: 0.5em;
-    text-align: right;
-    content: counter(item) ".";
-    color: black;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 700;
-    line-height: 24px;
-    word-wrap: break-word
+.schedule th {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
 }
 
-.certificates a
-{
-    margin: 8px;
-    color: #595959;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    text-decoration: underline;
-    line-height: 24px;
-    word-wrap: break-word
+.schedule td {
+  text-align: center;
+  cursor: pointer;
 }
 
-.work-experience
-{
-    margin: 51px 0px 0px 0px;
+.schedule td:hover {
+  background-color: #444;
 }
 
-.work-experience h3
-{
-    margin: 0;
-    color: black;
-    font-size: 16px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word;
+.schedule h2 {
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
 }
 
-.work-experience .experience
-{
-    margin: 12px 0px;
+.schedule td[rowspan]:not([rowspan="1"]) {
+  color: #fff;
 }
 
-.work-experience > .experience > h3
-{
-    color: black;
-    font-size: 16px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word;
-    margin: 20px 0px 12px 0px;
+.schedule td[rowspan]:not([rowspan="1"])::before {
+  content: " ";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 1px;
+  background-color: #ddd;
 }
 
-.work-experience > .experience > p
-{
-    margin: 0px;
-    color: #595959;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word;
+.schedule td[rowspan="1"] {
+  background-color: #ddd;
+  position: relative;
 }
 
-.work-experience > .experience > ul
-{
-    list-style: none;
-    padding-left: 0px;
-    margin: 8px 0px 0px 0px;
+.schedule td[rowspan="1"]::before {
+  display: none;
 }
 
-.work-experience > .experience > ul li::before
-{
-    content:"\2022";
-    color: #595959;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 24px;
-    word-wrap: break-word;
-    display: inline-block;
-    width: 10px;
+.schedule td[rowspan]:not([rowspan="1"]) {
+  position: relative;
 }
 
-.work-experience > .experience > ul > li
-{
-    color: #595959;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word;
+.schedule td[rowspan]:not([rowspan="1"]):hover::before {
+  background-color: #fff;
 }
-
-.main-content .subtitle
-{
-    color: #FB6D3A;
-    font-size: 16px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word;
-}
-
-.education
-{
-    margin: 48px 0px 0px 0px;
-}
-
-.education h4
-{
-    color: black;
-    font-size: 14px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word;
-}
-
-.education > h4 > .subtitle
-{
-    color: #FB6D3A;
-    font-size: 16px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word
-}
-
-.education p
-{
-    color: #A8A8A8;
-    font-size: 12px;
-    font-family: Montserrat;
-    font-weight: 400;
-    word-wrap: break-word;
-
-}
-
-.education h3
-{
-    color: black;
-    font-size: 22px;
-    font-family: Montserrat;
-    font-weight: 700;
-    word-wrap: break-word
-}
-
