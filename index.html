@@ -40,8 +40,10 @@
                 <p>My soft skills, including adaptability, critical thinking, creativity, communication, leadership, decision-making, flexibility, confidence, problem-solving, and project management, enable me to work effectively in teams and deliver successful results.</p>
             </div>
             <h3>For more information, you can check the link/file below.</h3>
-            <button class="download-button">./Download</button>
-            <button class="download-button" href="./pages/resume.html">./Check-Resume</button>
+
+            <button class="button">./Download</button>
+            <button class="button" href="./pages/resume.html">./Check-Resume</button>
+            <script href="./js/button.js"></script>
         </div>
 
 
@@ -49,105 +51,70 @@
             <h2>
                 # /Schedule -----------------
             </h2>
-            <table border="5" cellspacing="0" align="center" class="schedule">
-                <tr>
-                    <td align="center" height="50"
-                        width="150"><br>
-                        <b>Time</b></br>
-                    </td>
-                    <td align="center" height="50"
-                        width="150">
-                        <b>Monday</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>Tuesday</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="150">
-                        <b>Wednesday</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="150">
-                        <b>Thursday</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="150">
-                        <b>Friday</b>
-                    </td>
+            <table class="schedule">
+                <thead>
+                    <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
                     </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>7:30 - 8:30</b></td>
-                    <td align="center" rowspan="3" height="50">NET102<br>7:30-10:30 AM<br>Mr. V. Figueroa<br>(RM 204) </td>
-                    <td align="center" rowspan="5"height="50">
-                    </td>
-                    <td align="center" height="50"></td>
-                    <td colspan="0" align="center"
-                        height="50"></td>
-                        <td rowspan="2"align="center" height="50">WS101<br> 07:30-09:30 AM<br> Mr. V. Figueroa <br>(COMpLab)</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>8:31 - 9:30</b>
-                    </td>
-                    <td rowspan="2"align="center" height="50">GE11<br> 09:00-10:30 AM<br> Mr. V. Balintag <br>(RM204)<</td>
-                    <td rowspan="2" align="center" height="50">GE11<br> 09:00-10:30 AM<br> Mr. V. Balintag <br>(RM204)</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>9:31 - 10:30</b>
-                    </td>
-                    <td rowspan="2" align="center" height="50">IAS<br> 09:31-11:30 AM<br> Mr. V. Figueroa <br>(COMpLab)</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>10:30 - 11:30</b>
-                    </td>
-                    <td rowspan="2"align="center" height="50">SIA101<br> 10:30-12:30 AM<br> Mr. V. Figueroa <br>(RM204)</td>
-                    <td rowspan="2"align="center" height="50">SIA101<br> 10:30-12:30 aM<br> Mr. V. Figueroa <br>(RM204)</td>
-                    <td align="center" height="50"></td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>11:31 - 12:30</b>
-                    </td>
-                    <td  align="center"
-                        height="50">
-                    </td>
-                    <td align="center" height="50"></td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>12:30 - 1:30</b>
-                    </td>
-                    <td align="center" colspan="6" height="50"><h2>LUNCH BREAK</h2></td>
-                </tr>
-                <td align="center" height="50">
-                        <b>01:30 - 2:30</b>
-                    </td>
-                    <td align="center" rowspan="3" height="50">IPT102<br> 1:30-4:30 PM<br> Mr. V. Figueroa<br>(RM204)</td>
-                    <td rowspan="5" align="center" height="50"></td>
-                    <td align="center" rowspan="2" height="50">SPT1<br> 1:30-3:00 PM<br> Ms. J. Domingo<br>(COMpLab)</td>
-                    <td align="center" rowspan="2" height="50">PF301<br> 1:30-3:30 PM<br> Mr. E. Villanueva<br>(COMpLab)</td>
-                    <td colspan="0" align="center"
-                        height="50">
-                    </td>
-                </tr>
-                <td align="center" height="50">
-                        <b>2:30 - 3:30</b>
-                    </td>
-                    <td align="center" height="50"></td>
-                </tr>
-                <td align="center" height="50">
-                        <b>3:31 - 4:30</b>
-                    </td>
-                    <td align="center" height="50">SPT1<br> 1:30-3:00 PM<br> Ms. J. Domingo<br>(COMpLab)</td>
-                    <td align="center" height="50"></td>
-                    <td colspan="0" align="center"
-                        height="50">
-                    </td>
-                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>7:30 - 8:30</td>
+                    <td rowspan="3">NET102<br>7:30-10:30 AM<br>Mr. V. Figueroa<br>(RM 204)</td>
+                    <td rowspan="5"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>8:31 - 9:30</td>
+                    <td rowspan="2">GE11<br>09:00-10:30 AM<br>Mr. V. Balintag<br>(RM204)</td>
+                    <td rowspan="2">GE11<br>09:00-10:30 AM<br>Mr. V. Balintag<br>(RM204)</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>9:31 - 10:30</td>
+                    <td rowspan="2">IAS<br>09:31-11:30 AM<br>Mr. V. Figueroa<br>(ComLab)</td>
+                    </tr>
+                    <tr>
+                    <td>10:30 - 11:30</td>
+                    <td rowspan="2">SIA101<br>10:30-12:30 AM<br>Mr. V. Figueroa<br>(RM204)</td>
+                    <td rowspan="2">SIA101<br>10:30-12:30 AM<br>Mr. V. Figueroa<br>(RM204)</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>11:31 - 12:30</td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>12:30 - 1:30</td>
+                    <td colspan="5" class="lunch-break">LUNCH BREAK</td>
+                    </tr>
+                    <tr>
+                    <td>1:30 - 2:30</td>
+                    <td rowspan="3">IPT102<br>1:30-4:30 PM<br>Mr. V. Figueroa<br>(RM204)</td>
+                    <td rowspan="5"></td>
+                    <td rowspan="2">SPT1<br>1:30-3:00 PM<br>Ms. J. Domingo<br>(ComLab)</td>
+                    <td rowspan="2">PF301<br>1:30-3:30 PM<br>Mr. E. Villanueva<br>(ComLab)</td>
+                    <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                    <td>2:30 - 3:30</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>3:31 - 4:30</td>
+                    <td>SPT1<br>1:30-3:00 PM<br>Ms. J. Domingo<br>(ComLab)</td>
+                    <td></td>
+                    <td colspan="2"></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
