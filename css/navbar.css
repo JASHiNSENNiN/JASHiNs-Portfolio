@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    margin-top: 10px;
   }
   
   ul {
@@ -32,3 +33,25 @@
     color: #282a36;
   }
 
+
+.button-navbar {
+  z-index: 100;
+  padding: 20px;
+  font-family: Fira Code;
+  position: fixed;
+  right: 0;
+}
+
+.nav-button {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-family: Fira Code;
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid #bd93f9;
+  color: #bd93f9;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

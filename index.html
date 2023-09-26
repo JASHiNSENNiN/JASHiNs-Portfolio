@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <?php require 'config.php';?>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link  rel="stylesheet" href="./css/navbar.css">
@@ -19,6 +20,11 @@
                 <li><a href="#contact">$ Contacts</a></li>
             </ul>
         </nav>
+        <nav class="button-navbar">
+            <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">./Sign-In</button>
+        </nav>
+
+        <script ... src="./js/navbar.js"></script>
 
         <div id="home">
             <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
