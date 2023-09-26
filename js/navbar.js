@@ -1,3 +1,3 @@
 function toggleTransparentBox() {
-    window.open('./pages/signIn.html');
+    window.open('./pages/signIn.php');
   }

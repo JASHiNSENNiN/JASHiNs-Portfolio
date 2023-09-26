@@ -13,7 +13,7 @@
   <script src="../js/signIn.js"></script>
 
   <div class="terminal">
-    <form id="login-form" action="signIn.php" method="POST">
+    <form id="login-form" action="../php/signIn.php" method="POST">
       <h2 class="terminal-typing" data-text="./Sign-In   "></h2>
       <label for="login-username">Username:</label>
       <input type="text" id="login-username" name="login-username" required>
