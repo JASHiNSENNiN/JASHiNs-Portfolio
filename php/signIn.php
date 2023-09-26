@@ -1,20 +1,33 @@
 <?php
-   require_once '../php/config.php';
+require_once '../php/config.php';
 
-   if ($_SERVER["REQUEST_METHOD"] === "POST") {
-       $username = $_POST["username"];
-       $password = $_POST["password"];
+// Retrieve form data
+$username = $_POST['login-username'];
+$password = $_POST['login-password'];
 
-       $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-       $result = $conn->query($sql);
+// Connect to the database
+$db = new SQLite3(guests);
 
-       if ($result->num_rows > 0) {
-           $_SESSION["username"] = $username;
-           header("Location: dashboard.php");
-       } else {
-           echo "Invalid username or password.";
-       }
-   }
+// Prepare the query
+$stmt = $db->prepare('SELECT * FROM users WHERE username = :username AND password = :password');
+$stmt->bindValue(':username', $username, SQLITE3_TEXT);
+$stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
-   $conn->close();
-   ?>
+// Execute the query
+$result = $stmt->execute();
+
+// Check if a matching record was found
+if ($result->fetchArray()) {
+    // User is authenticated, perform necessary actions (e.g., set session variables)
+    // Redirect to a logged-in page
+    header('Location: logged_in.php');
+    exit();
+} else {
+    // Authentication failed, show error message or redirect to login page
+    header('Location: login.php?error=1');
+    exit();
+}
+
+// Close the database connection
+$db->close();
+?>

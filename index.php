@@ -19,9 +19,22 @@
                 <li><a href="#contact">$ Contacts</a></li>
             </ul>
         </nav>
-        <nav class="button-navbar">
-            <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">./Sign-In</button>
-        </nav>
+        <?php
+        session_start();
+
+        // Check if the user is logged in
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+            // User is logged in, render the "Sign-Out" button
+            echo '<nav class="button-navbar">
+                    <a class="nav-button" href="sign-out.php">./Sign-Out</a>
+                </nav>';
+        } else {
+            // User is not logged in, render the "Sign-In" button
+            echo '<nav class="button-navbar">
+                    <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">./Sign-In</button>
+                </nav>';
+        }
+        ?>
 
         <script ... src="./js/navbar.js"></script>
 
