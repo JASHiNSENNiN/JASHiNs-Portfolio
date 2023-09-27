@@ -20,11 +20,11 @@ $result = $stmt->execute();
 if ($result->fetchArray()) {
     // User is authenticated, perform necessary actions (e.g., set session variables)
     // Redirect to a logged-in page
-    header('Location: logged_in.php');
+    header('Location: index.php');
     exit();
 } else {
     // Authentication failed, show error message or redirect to login page
-    header('Location: login.php?error=1');
+    header('Location: ../pages/signInPage.php?error=1');
     exit();
 }
 

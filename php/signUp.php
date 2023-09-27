@@ -9,7 +9,7 @@ $confirmPassword = $_POST['signup-confirm-password'];
 // Validate the form data
 if ($password !== $confirmPassword) {
     // Passwords don't match, show error message or redirect to sign-up page
-    header('Location: signup.php?error=1');
+    header('Location: ../pages/signInPage.php?error=1');
     exit();
 }
 
