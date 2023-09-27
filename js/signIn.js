@@ -33,6 +33,7 @@ function toggleForm() {
   // Call the toggleForm function on page load
   window.onload = function () {
     toggleForm();
+    toggleForm();
   };
   
   function typeText(targetElement, text) {

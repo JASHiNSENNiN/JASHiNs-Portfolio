@@ -15,17 +15,6 @@
   <a href="../index.php" class="home-button">./Home</a>
 
   <div class="terminal">
-  <form id="login-form" action="../php/signIn.php" method="POST">
-  <h2 class="terminal-typing" data-text="./Sign-In   "></h2>
-  <label for="login-username">Username:</label>
-  <input type="text" id="login-username" name="login-username" required>
-  <label for="login-password">Password:</label>
-  <input type="password" id="login-password" name="login-password" required>
-  <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-    <p class="error-message">Incorrect username or password.</p>
-  <?php endif; ?>
-  <button type="submit">Sign In</button>
-</form>
 
 <form id="signup-form" action="../php/signUp.php" method="POST">
   <h2 class="terminal-typing" data-text="./Sign-Up   "></h2>
@@ -45,6 +34,19 @@
     <?php endif; ?>
   <?php endif; ?>
   <button type="submit">Sign Up</button>
+</form>
+<form id="login-form" action="../php/signIn.php" method="POST">
+  <h2 class="terminal-typing" data-text="./Sign-In   "></h2>
+  <label for="login-username">Username:</label>
+  <input type="text" id="login-username" name="login-username" required>
+  <label for="login-password">Password:</label>
+  <input type="password" id="login-password" name="login-password" required>
+  <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+    <p class="error-message">Incorrect username or password.</p>
+  <?php elseif (isset($_GET['error']) && $_GET['error'] == 2): ?>
+    <p class="error-message">Wrong password.</p>
+  <?php endif; ?>
+  <button type="submit">Sign In</button>
 </form>
   </div>
 

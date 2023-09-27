@@ -25,10 +25,16 @@ if (!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/', $passwo
     exit();
 }
 
+$salt = bin2hex(random_bytes(16));
+
+// Apply multiple layers of password encryption
+$hashedPassword = sha1(md5(crypt($password, $salt)));
+
 // Prepare the query
-$stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
+$stmt = $pdo->prepare('INSERT INTO users (username, password, salt) VALUES (:username, :password, :salt)');
 $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-$stmt->bindValue(':password', $password, PDO::PARAM_STR);
+$stmt->bindValue(':password', $hashedPassword, PDO::PARAM_STR);
+$stmt->bindValue(':salt', $salt, PDO::PARAM_STR);
 
 // Execute the query
 $stmt->execute();

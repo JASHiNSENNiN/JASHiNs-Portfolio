@@ -21,12 +21,19 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-// Create the users table if it doesn't exist
 try {
+    // Create the "guests" database if it does not exist
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS guests");
+
+    // Select the "guests" database
+    $pdo->exec("USE guests");
+
+    // Create the "users" table if it does not exist
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(255) NOT NULL UNIQUE,
-        password VARCHAR(255) NOT NULL
+        password VARCHAR(255) NOT NULL,
+        salt VARCHAR(255) NOT NULL
     )");
 } catch (PDOException $e) {
     echo "Failed to create the users table: " . $e->getMessage();
