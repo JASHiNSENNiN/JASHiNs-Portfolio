@@ -1,15 +1,38 @@
 <?php
-define('guests', '../data/guests.db');
+define('DB_PATH', '../data/guests.db');
 
-// Attempt to connect to the database
-$pdo = new PDO('sqlite:' . '../data/guests.db');
+// Check if the database file exists
+if (!file_exists(DB_PATH)) {
+    // Attempt to create the database file
+    try {
+        $pdo = new PDO('sqlite:' . DB_PATH);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Failed to create the database: " . $e->getMessage();
+        exit();
+    }
 
-// Set error mode to exception
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Create table if it doesn't exist
-$pdo->exec("CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL,
-    password TEXT NOT NULL
-)");
+    // Create the users table
+    try {
+        $pdo->exec("CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            password TEXT NOT NULL
+        )");
+        echo "Table created successfully!";
+    } catch (PDOException $e) {
+        echo "Failed to create the table: " . $e->getMessage();
+        exit();
+    }
+} else {
+    // Database file already exists, connect to it
+    try {
+        $pdo = new PDO('sqlite:' . DB_PATH);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected to the database successfully!";
+    } catch (PDOException $e) {
+        echo "Failed to connect to the database: " . $e->getMessage();
+        exit();
+    }
+}
+?>
