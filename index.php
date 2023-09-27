@@ -26,12 +26,12 @@
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         // User is logged in, render the "Sign-Out" button
         echo '<nav class="button-navbar">
-                <a class="nav-button" href="../php/signOut.php">Sign-Out</a>
+            <button id="sign-in-button" class="nav-button" onclick="signOut()">./Sign-Out</button>
             </nav>';
     } else {
         // User is not logged in, render the "Sign-In" button
         echo '<nav class="button-navbar">
-                <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">Sign-In</button>
+                <button id="sign-in-button" class="nav-button" onclick="signIn()">./Sign-In</button>
             </nav>';
     }
 ?>

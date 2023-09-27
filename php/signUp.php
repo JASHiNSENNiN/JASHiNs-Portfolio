@@ -34,6 +34,6 @@ $stmt->bindValue(':password', $password, PDO::PARAM_STR);
 $stmt->execute();
 
 // Redirect to a success page
-header('Location: ../index.php');
+header('Location: ../pages/signInPage.php');
 exit();
 ?>

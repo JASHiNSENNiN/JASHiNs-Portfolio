@@ -86,3 +86,20 @@ body {
   transition: background-color 0.3s ease;
   margin-top: 20px;
 }
+
+.home-button {
+  float: right; /* Add float property to align at the top right */
+  margin-right: 20px; /* Add margin to create space from the right */
+  margin-top: 20px;
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 20px;
+  color: #bd93f9;
+  transition: color 0.3s ease;
+}
+
+.home-button:hover,
+#toggle-form-button:hover {
+  background-color: #bd93f9;
+  color: #fff;
+}
