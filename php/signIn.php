@@ -1,13 +1,5 @@
 <?php
-session_start();
 require_once '../php/config.php';
-
-// Check if the user is already logged in
-if (isset($_SESSION['username'])) {
-    // Redirect to the home page or any other authenticated page
-    header('Location: ../index.php');
-    exit();
-}
 
 // Retrieve form data
 $username = $_POST['login-username'];
@@ -26,7 +18,7 @@ if ($stmt->fetch()) {
     // Authentication successful, store the username in the session
     $_SESSION['username'] = $username;
     $_SESSION['logged_in'] = true; // Set the logged_in session variable to true
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit();
 } else {
     // Authentication failed, show error message or redirect to the login page

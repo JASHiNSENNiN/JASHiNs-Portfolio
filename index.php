@@ -23,13 +23,7 @@
     error_reporting(E_ALL);
     require_once './php/config.php';
 
-    // Check if the user is logged in
-    if (isset($_SESSION['username'])) {
-        // User is already logged in, redirect to the home page or any other authenticated page
-        header('Location: ../index.php');
-        exit();
-    }
-    elseif (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         // User is logged in, render the "Sign-Out" button
         echo '<nav class="button-navbar">
                 <a class="nav-button" href="../php/signOut.php">Sign-Out</a>

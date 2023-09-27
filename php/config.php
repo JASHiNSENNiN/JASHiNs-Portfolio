@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'guests');
@@ -14,6 +15,11 @@ try {
     exit();
 }
 
+if (isset($_SESSION['username'])) {
+    // Redirect to the home page or any other authenticated page
+    header('Location: ./index.php');
+    exit();
+}
 
 // Create the users table if it doesn't exist
 try {
