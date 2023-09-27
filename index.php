@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +22,6 @@
         </nav>
         <?php
     error_reporting(E_ALL);
-    require_once './php/config.php';
 
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         // User is logged in, render the "Sign-Out" button
@@ -46,13 +46,12 @@
     </div>
 
     <?php
-    // Check if the user is already logged in
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['logged_in'])) {
         $username = $_SESSION['username'];
-        $terminalPrompt = "$username@guest ~$";
-        $additionalMessage = "Currently signed in as > $username<br>Thank you for visiting my portfolio. Explore my work and learn more about me. Feel free to reach out for collaborations. Enjoy your time here!";
+        $terminalPrompt = "$username@guest ~$   ";
+        $additionalMessage = "Currently signed in as <span style='color: green;'>$username</span><br>Thank you for visiting my portfolio! <br>Explore my work and learn more about me. Feel free to reach out for collaborations. <br>Enjoy your time here!";
     } else {
-        $terminalPrompt = "jashin@jpcs ~$";
+        $terminalPrompt = "jashin@jpcs ~$   ";
         $additionalMessage = "Name: Josh V. Cinense<br>Age: 20<br><br>Creates things with the power of creativity and efficiency";
     }
     ?>

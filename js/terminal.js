@@ -1,18 +1,11 @@
-const terminalData = [
-  {
-    text: "",
-    additionalMessage: document.createElement("div")
-  },
-];
-
 const terminalElements = document.getElementsByClassName("terminal");
 
 function writeText() {
   let currentIndex = 0;
   function typeText() {
     const targetElement = terminalElements[currentIndex];
-    const terminal = terminalData[currentIndex];
     const text = targetElement.getAttribute("text");
+    const additionalMessage = targetElement.getAttribute("additional-message");
     let index = 0;
     const initialText = targetElement.textContent;
 
@@ -23,7 +16,8 @@ function writeText() {
       if (index === text.length) {
         clearInterval(intervalId);
 
-        const extraMessageElement = terminal.additionalMessage;
+        const extraMessageElement = document.createElement("div");
+        extraMessageElement.innerHTML = additionalMessage;
         extraMessageElement.classList.add("extra-message");
         targetElement.parentNode.insertBefore(
           extraMessageElement,
@@ -35,7 +29,7 @@ function writeText() {
         cursorElement.textContent = "|"; // Set the cursor text or symbol
 
         // Append the cursor only if the additional message is not empty
-        if (terminal.additionalMessage.innerHTML.trim() !== "") {
+        if (additionalMessage.trim() !== "") {
           extraMessageElement.appendChild(cursorElement);
         }
 
@@ -46,7 +40,7 @@ function writeText() {
           setTimeout(typeText, 500);
         }
       }
-    }, 200); // Adjust the interval duration (in milliseconds) to control the speed of typing
+    }, 100); // Adjust the interval duration (in milliseconds) to control the speed of typing
   }
 
   // Start typing the first terminal
