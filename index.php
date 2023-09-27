@@ -19,7 +19,7 @@
                 <li><a href="#contact">$ Contacts</a></li>
             </ul>
         </nav>
-        <?php
+        <?php error_reporting(E_ALL);
         session_start();
 
         // Check if the user is logged in
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <?php
+        <?php error_reporting(E_ALL);
         require_once './php/config.php';
 
         // Check if the user is already logged in

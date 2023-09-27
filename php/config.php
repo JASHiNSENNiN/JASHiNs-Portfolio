@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL);
 define('DB_PATH', '../data/guests.db');
 
 // Check if the database file exists
@@ -16,7 +16,7 @@ if (!file_exists(DB_PATH)) {
     try {
         $pdo->exec("CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
+            username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL
         )");
         echo "Table created successfully!";

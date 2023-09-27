@@ -12,6 +12,7 @@
 <body>
   <button id="toggle-form-button" onclick="toggleForm()">$~/.Sign-Up ----\></button>
   <script src="../js/signIn.js"></script>
+  <a href="../index.php" class="home-button">./Home</a>
 
   <div class="terminal">
   <form id="login-form" action="../php/signIn.php" method="POST">
