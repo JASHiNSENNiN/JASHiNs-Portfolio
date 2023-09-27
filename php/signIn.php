@@ -25,6 +25,7 @@ $stmt->execute();
 if ($stmt->fetch()) {
     // Authentication successful, store the username in the session
     $_SESSION['username'] = $username;
+    $_SESSION['logged_in'] = true; // Set the logged_in session variable to true
     header('Location: ../index.php');
     exit();
 } else {

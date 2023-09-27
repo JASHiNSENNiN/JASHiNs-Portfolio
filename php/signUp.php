@@ -25,19 +25,13 @@ if (!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/', $passwo
     exit();
 }
 
-// Connect to the database
-$db = new SQLite3(DB_PATH);
-
 // Prepare the query
-$stmt = $db->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
-$stmt->bindValue(':username', $username, SQLITE3_TEXT);
-$stmt->bindValue(':password', $password, SQLITE3_TEXT);
+$stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
+$stmt->bindValue(':username', $username, PDO::PARAM_STR);
+$stmt->bindValue(':password', $password, PDO::PARAM_STR);
 
 // Execute the query
 $stmt->execute();
-
-// Close the database connection
-$db->close();
 
 // Redirect to a success page
 header('Location: ../index.php');

@@ -1,38 +1,29 @@
-<?php error_reporting(E_ALL);
-define('DB_PATH', '../data/guests.db');
+<?php
+error_reporting(E_ALL);
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'guests');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
 
-// Check if the database file exists
-if (!file_exists(DB_PATH)) {
-    // Attempt to create the database file
-    try {
-        $pdo = new PDO('sqlite:' . DB_PATH);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Failed to create the database: " . $e->getMessage();
-        exit();
-    }
+// Create a new PDO instance
+try {
+    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Failed to connect to the database: " . $e->getMessage();
+    exit();
+}
 
-    // Create the users table
-    try {
-        $pdo->exec("CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL
-        )");
-        echo "Table created successfully!";
-    } catch (PDOException $e) {
-        echo "Failed to create the table: " . $e->getMessage();
-        exit();
-    }
-} else {
-    // Database file already exists, connect to it
-    try {
-        $pdo = new PDO('sqlite:' . DB_PATH);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected to the database successfully!";
-    } catch (PDOException $e) {
-        echo "Failed to connect to the database: " . $e->getMessage();
-        exit();
-    }
+
+// Create the users table if it doesn't exist
+try {
+    $pdo->exec("CREATE TABLE IF NOT EXISTS users (
+        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(255) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL
+    )");
+} catch (PDOException $e) {
+    echo "Failed to create the users table: " . $e->getMessage();
+    exit();
 }
 ?>

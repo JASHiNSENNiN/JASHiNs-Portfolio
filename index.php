@@ -19,49 +19,52 @@
                 <li><a href="#contact">$ Contacts</a></li>
             </ul>
         </nav>
-        <?php error_reporting(E_ALL);
-        session_start();
+        <?php
+    error_reporting(E_ALL);
+    require_once './php/config.php';
 
-        // Check if the user is logged in
-        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-            // User is logged in, render the "Sign-Out" button
-            echo '<nav class="button-navbar">
-                    <a class="nav-button" href="../php/signOut.php">./Sign-Out</a>
-                </nav>';
-        } else {
-            // User is not logged in, render the "Sign-In" button
-            echo '<nav class="button-navbar">
-                    <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">./Sign-In</button>
-                </nav>';
-        }
-        ?>
+    // Check if the user is logged in
+    if (isset($_SESSION['username'])) {
+        // User is already logged in, redirect to the home page or any other authenticated page
+        header('Location: ../index.php');
+        exit();
+    }
+    elseif (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+        // User is logged in, render the "Sign-Out" button
+        echo '<nav class="button-navbar">
+                <a class="nav-button" href="../php/signOut.php">Sign-Out</a>
+            </nav>';
+    } else {
+        // User is not logged in, render the "Sign-In" button
+        echo '<nav class="button-navbar">
+                <button id="sign-in-button" class="nav-button" onclick="toggleTransparentBox()">Sign-In</button>
+            </nav>';
+    }
+?>
+    <script src="./js/navbar.js"></script>
 
-        <script src="./js/navbar.js"></script>
-
-        <div id="home">
-            <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+    <div id="home">
+        <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
             <script src="./js/welcome_text.js"></script>
             <div id="welcome_screen">
                 <p>Full Stack Web Developer | Game Developer</p>
             </div>
-        </div>
+    </div>
 
-        <?php error_reporting(E_ALL);
-        require_once './php/config.php';
+    <?php
+    // Check if the user is already logged in
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        $terminalPrompt = "$username@guest ~$";
+        $additionalMessage = "Currently signed in as > $username<br>Thank you for visiting my portfolio. Explore my work and learn more about me. Feel free to reach out for collaborations. Enjoy your time here!";
+    } else {
+        $terminalPrompt = "jashin@jpcs ~$";
+        $additionalMessage = "Name: Josh V. Cinense<br>Age: 20<br><br>Creates things with the power of creativity and efficiency";
+    }
+    ?>
 
-        // Check if the user is already logged in
-        if (isset($_SESSION['username'])) {
-            $username = $_SESSION['username'];
-            $terminalPrompt = "$username@guest ~$";
-            $additionalMessage = "Currently signed in as > $username<br>Thank you for visiting my portfolio. Explore my work and learn more about me. Feel free to reach out for collaborations. Enjoy your time here!";
-        } else {
-            $terminalPrompt = "jashin@jpcs ~$";
-            $additionalMessage = "Name: Josh V. Cinense<br>Age: 20<br><br>Creates things with the power of creativity and efficiency";
-        }
-        ?>
-
-        <div id="terminal0" class="terminal" text="<?php echo isset($_SESSION['username']) ? 'Greet -Guest' : 'whoami'; ?>" additional-message="<?php echo $additionalMessage; ?>"><?php echo $terminalPrompt; ?></div>
-        <script src="./js/terminal.js"></script>
+    <div id="terminal0" class="terminal" text="<?php echo isset($_SESSION['username']) ? 'Greet -Guest' : 'whoami'; ?>" additional-message="<?php echo $additionalMessage; ?>"><?php echo $terminalPrompt; ?></div>
+    <script src="./js/terminal.js"></script>
 
         <div id="aboutme" class="aboutme">
             <h2>
