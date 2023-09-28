@@ -1,6 +1,6 @@
 # Welcome to my portfolio website! This website showcases my projects, skills, and experience as a developer. Feel free to explore and learn more about me.
 
-## You can click [here](https://jashins-portfolio.netlify.app) to visit the website.
+## You can click [here](jashins-terminal.000webhostapp.com) to visit the website.
 
 ## TODO LIST
 -  ~~Home~~
