@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./css/style.css">
         <script src="https://kit.fontawesome.com/yourcode.js"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.ico">
-        <title>Document</title>
+        <title>>./Portfolio</title>
     </head>
     <body>
         <nav class="terminal-navbar">
