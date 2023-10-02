@@ -7,7 +7,6 @@
         <link  rel="stylesheet" href="./css/navbar.css">
         <link rel="stylesheet" href="./css/welcome_text.css">
         <link rel="stylesheet" href="./css/style.css">
-        <script src="https://kit.fontawesome.com/yourcode.js"></script>
         <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.ico">
         <title>>./Portfolio</title>
     </head>
