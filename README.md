@@ -1,4 +1,4 @@
-# Josh V. Cinense — Portfolio in a Nutshell
+# Josh V. Cinense
 
 > Cybersecurity Specialist & Full Stack Developer
 > Guimba, Central Luzon, Philippines
