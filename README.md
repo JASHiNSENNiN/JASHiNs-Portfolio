@@ -56,17 +56,11 @@ Hi, I'm **Josh V. Cinense** — passionate about cybersecurity, web exploitation
 
 ---
 
-## 📄 [Download My Resume (PDF)](src/CinenseJoshResumeV3.pdf)
-
----
-
 ## 📬 Contact & Socials
 - **Email:** jacercinense@gmail.com
 - **LinkedIn:** [cinense-josh-vengco](https://www.linkedin.com/in/cinense-josh-vengco/)
 - **GitHub:** [JASHiNSENNiN](https://github.com/JASHiNSENNiN)
-- **Discord:** _j4shin
-- **Phone:** +63 926 900 3279
-
+  
 ---
 
 > Built with 💻 and a hacker's spirit by Josh V. Cinense 
