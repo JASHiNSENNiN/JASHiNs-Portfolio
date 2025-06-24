@@ -1,62 +1,61 @@
-# Welcome to my portfolio website! This website showcases my projects, skills, and experience as a developer. Feel free to explore and learn more about me.
+# Josh V. Cinense - Portfolio Website
 
-## You can click [here](https://jashins-terminal.000webhostapp.com) to visit the website.
+A modern, terminal-inspired portfolio website for Josh V. Cinense, Cybersecurity Specialist & Software Developer. Features a hacker/material UI, interactive sections, and a downloadable resume.
 
-## TODO LIST
--  ~~Home~~
--  ~~Schedule~~
--  ~~Contacts~~
--  ~~About Me~~
--  ~~Resume~~
--  ~~Login and Register Functionality~~
--  ~~Visitor Greeting~~
+## 🚀 Features
 
-## Table of Contents
+- **Hacker/Material UI**: Terminal-inspired, dark, and neon-accented design
+- **Responsive**: Looks great on desktop and mobile
+- **Animated Sections**: Smooth fade-in, glitch, and scanline effects
+- **Experience Timeline**: Visualizes work history
+- **Skills Tag Cloud**: Highlights technical and soft skills
+- **Certifications Carousel**: Swipable, scrollable on all devices
+- **Projects Grid**: Custom project highlights
+- **Downloadable Resume**: [Resume (PDF)](src/CinenseJoshResumeV3.pdf)
+- **Contact & Social Links**: Easy ways to connect
 
-- [Home](#home)
-- [Schedule](#schedule)
-- [About Me](#about-me)
-- [Resume](#resume)
-- [Contacts](#contacts)
+## 🛠️ Tech Stack
 
-## Home
-Welcome to my portfolio website! This website showcases my skills, projects, and experiences as a developer. Below, you'll find a brief overview of the main sections of the website:
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/cfc568f8-e8b1-4b98-8e92-1040927ac34d)
+- **HTML5**
+- **CSS3** (Flexbox, Grid, custom animations)
+- **JavaScript** (vanilla, no frameworks)
+- **Font Awesome** (icons)
+- **Google Fonts** (JetBrains Mono, Inter)
 
+## 📦 Setup Instructions
 
-### Sign in / Sign up
-You can sign in to my portfolio to be greeted by the terminal
+1. **Clone or Download** this repository
+2. **Open `index.html`** in your browser (no build step needed)
+3. To run locally with a server (optional):
+   ```bash
+   # Python 3
+   python -m http.server 8000
+   # or Node.js
+   npx http-server
+   ```
 
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/5c1ef6ec-1bbe-44be-b190-9ce4fee76c92)
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/d003a134-32da-4aea-922a-898587be63a2)
+## 🎨 Customization
 
-### The Signed in Page
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/8c2b7cbe-32f6-4c19-8484-46697c0a8639)
+- **Edit `index.html`** to update your info, projects, skills, etc.
+- **Change colors/fonts** in `styles.css` for a different vibe
+- **Replace the resume**: Swap out `src/CinenseJoshResumeV3.pdf` with your own
+- **Icons**: Uses Font Awesome, easily swappable
 
+## 🌐 Deployment
 
-## About Me
-The Home section serves as the landing page of my portfolio. Here, you can get a glimpse of my expertise. Feel free to navigate through different sections using the navigation bar at the top.
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/d60d68f3-a785-49bd-853e-5ceb0fe6f1a5)
+- **GitHub Pages**: Just push to a repo and enable Pages
+- **Netlify/Vercel**: Drag and drop or connect your repo
 
+## 📄 License
 
+MIT License. Free to use and modify.
 
-## Schedule
-In the Schedule section, you can find information about my availability, whether I am in a class or not. If you're interested in working together, this section provides details on how to schedule a meeting or get in touch with me.
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/72a1935d-f1e8-4eb0-8bce-7691615739b6)
+## 🙋 Contact
 
+- **LinkedIn**: [cinense-josh-vengco](https://www.linkedin.com/in/cinense-josh-vengco/)
+- **GitHub**: [JASHiNSENNiN](https://github.com/JASHiNSENNiN)
+- **Email**: jacercinense@gmail.com
 
+---
 
-## Contacts
-The Contacts section contains various ways to get in touch with me. You'll find links to my social media profiles, including Facebook, Discord, and GitHub. Additionally, you can reach out to me via email using the provided contact information. Don't hesitate to connect with me — I'd love to hear from you!
-![image](https://github.com/JASHiNSENNiN/JASHiNs-Portfolio/assets/95284497/8189bb8a-09b6-44d7-ac97-bab7536ad0bc)
-
-
-
-
-
-
-
-
-
-
-
+> Built with 💻 and a hacker's spirit by Josh V. Cinense 

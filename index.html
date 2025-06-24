@@ -1,317 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Curriculum Vitae</title>
-		<link rel="stylesheet" href="css/resume-style.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="images/resumeFavicon.png"
-		/>
-	</head>
-	<body>
-		<!-- Left Section -->
-		<section class="sidebar">
-			<img src="images/img.jfif" alt="profile picture" width="370 px" style=" border-radius: 50%;"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josh V. Cinense - Cybersecurity Specialist & Software Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%2300ff41" d="M257.6 311l-99.7-99.7c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l83.5 83.5-83.5 83.5c-4.7 4.7-4.7 12.3 0 17l7.1 7.1c4.7 4.7 12.3 4.7 17 0l99.7-99.7c4.7-4.7 4.7-12.3 0-17zm144.4 97.5h-176c-6.6 0-12 5.4-12 12v10c0 6.6 5.4 12 12 12h176c6.6 0 12-5.4 12-12v-10c0-6.6-5.4-12-12-12z"/></svg>'>
+</head>
+<body>
+    <div class="particle-bg"></div>
+    
+    
 
-			<div class="content">
-				<!-- Contacts -->
-				<div class="contacts">
-					<h3>Contacts</h3>
-					<p>
-						C:<a class="phone-number" href="tel: +639269003279"
-							>+639269003279</a
-						>
-					</p>
-					<p>
-						M:<a class="email" href="mailto: jacercinense@gmail.com"
-							>jacercinense@gmail.com</a
-						>
-					</p>
-				</div>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="hamburger" aria-label="Open navigation menu" tabindex="0">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="terminal-bar">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-terminal"></i> Home</a></li>
+            <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
+            <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-keyboard"></i> Skills</a></li>
+            <li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-user-tie"></i> Experience</a></li>
+            <li class="nav-item"><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user-astronaut"></i> About</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="navbar-scanline"></div>
+    </nav>
 
-				<!-- Tech Skills -->
-				<div class="tech-skills">
-					<h3>Tech Skills</h3>
-					<ul>
-						<li>Java</li>
-						<li>Python</li>
-						<li>C#</li>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>Game Development and Design</li>
-						<li>Linux UX Designing</li>
-						<li>Graphic Design</li>
-						<li>MySQL / Database Management</li>
-						<li>Web Security</li>
-						<li>Version Control</li>
-						<li>Risk management</li>
-						<li>Incident Response Planning</li>
-						<li>Troubleshooting and Debugging</li>
-						<li>Multimedia Production</li>
-						<li>Object Oriented Design and Programming</li>
-						<li>3D Modeling and Animation Software</li>
-						<li>Cryptography</li>
-						<li>Cybersecurity</li>
-						<li>Webs Design and Development</li>
-						<li>Ethical Hacking</li>
-						<li>Technical Writing and Documentation</li>
-						<li>Ad campaign design and management</li>
-						<li>Internet of Things (IoT)</li>
-						<li>Cyber Threat Intelligence</li>
-					</ul>
-				</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero section-fade" style="background: #101010;">
+        <canvas class="matrix-rain"></canvas>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="terminal-window">
+                    <div class="terminal-header-small">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="command-line">
+                            <span class="prompt">$</span>
+                            <span class="command">whoami</span>
+                        </div>
+                        <div class="output">josh_cinense</div>
+                        
+                        <div class="command-line">
+                            <span class="prompt">$</span>
+                            <span class="command">cat profile.txt</span>
+                        </div>
+                        <div class="output">
+                            <div class="profile-info">
+                                <h1>Josh V. Cinense</h1>
+                                <h2>Cybersecurity Specialist & Software Developer</h2>
+                                <p>Passionate about cybersecurity, web exploitation, and building secure, scalable applications. 
+                                Specialized in Python, C#, and modern security frameworks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="command-line">
+                            <span class="prompt">$</span>
+                            <span class="command">ls skills/</span>
+                        </div>
+                        <div class="output">
+                            <div class="skill-tags">
+                                <span class="skill-tag">Cybersecurity</span>
+                                <span class="skill-tag">Web Exploitation</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Reverse Engineering</span>
+                                <span class="skill-tag">C#</span>
+                            </div>
+                        </div>
+                        
+                        <div class="command-line active">
+                            <span class="prompt">$</span>
+                            <span class="command">./start_portfolio</span>
+                            <span class="cursor">|</span>
+                        </div>
+                        <div class="scanline"></div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary glitch">
+                        <i class="fas fa-code"></i>
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary glitch">
+                        <i class="fas fa-terminal"></i>
+                        Connect
+                    </a>
+                    <a href="src/CinenseJoshResumeV3.pdf" class="btn btn-secondary glitch" download style="font-weight:600;">
+                        <i class="fas fa-file-download"></i>
+                        Resume (PDF)
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://www.linkedin.com/in/cinense-josh-vengco/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/JASHiNSENNiN" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:jacercinense@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Soft Skills -->
-				<div class="soft-skills">
-					<h3>Soft Skills</h3>
-					<ul>
-						<li>Adaptability</li>
-						<li>Active Learning</li>
-						<li>Active listening</li>
-						<li>Task delegation</li>
-						<li>Critical Thinking</li>
-						<li>Creativity</li>
-						<li>Communication</li>
-						<li>Collaboration</li>
-						<li>Resilience</li>
-						<li>Leadership</li>
-						<li>Decision-making</li>
-						<li>Flexibility</li>
-						<li>Confidence</li>
-						<li>Problem Solving</li>
-						<li>Project Management</li>
-					</ul>
-				</div>
-			</div>
-		</section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card glitch">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Cybersecurity Homelab</h3>
+                            <span class="project-type">Infrastructure & Virtualization</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>A fully virtualized lab for offensive/defensive security research. Built on Proxmox, it uses Docker, Portainer, and OPNsense for containerization and network security. Used for pen-testing simulations, malware analysis, and threat intelligence.</p>
+                        <div class="project-tech">
+                            <span>Proxmox</span>
+                            <span>Docker</span>
+                            <span>Portainer</span>
+                            <span>OPNsense</span>
+                            <span>Linux</span>
+                        </div>
+                        <div class="scanline"></div>
+                    </div>
+                </div>
+                <div class="project-card glitch">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Self-Hosted Infrastructure</h3>
+                            <span class="project-type">System Administration</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>A comprehensive home server providing various self-hosted services. Manages web hosting, media servers, and secure remote access via Cloudflare Tunnels. Demonstrates skills in system administration and maintaining high-availability services.</p>
+                        <div class="project-tech">
+                            <span>Linux Server</span>
+                            <span>Cloudflare</span>
+                            <span>System Admin</span>
+                            <span>Docker</span>
+                            <span>High Availability</span>
+                        </div>
+                        <div class="scanline"></div>
+                    </div>
+                </div>
+                <div class="project-card glitch">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>CTF & Security Research</h3>
+                            <span class="project-type">Competitive Hacking</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Active participant in Capture-The-Flag competitions focusing on Web Exploitation, Cryptography, and Reverse Engineering. Ranked in regional HACKFORGOV events, showcasing practical problem-solving skills under pressure.</p>
+                        <div class="project-tech">
+                            <span>CTF</span>
+                            <span>Web Exploitation</span>
+                            <span>Cryptography</span>
+                            <span>Reverse Engineering</span>
+                            <span>OSINT</span>
+                        </div>
+                        <div class="scanline"></div>
+                    </div>
+                </div>
+                <div class="project-card glitch">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div class="project-title">
+                            <h3>Custom Arch Linux Cybersecurity Distro</h3>
+                            <span class="project-type">Red/Blue/Purple Team OS</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and riced my own Arch Linux-based cybersecurity distribution, tailored for red, blue, and purple team operations. Features a fully customized Hyprland and KDE desktop, pre-installed with essential tools for offensive, defensive, and threat hunting workflows. Built for performance, aesthetics, and productivity.</p>
+                        <div class="project-tech">
+                            <span>Arch Linux</span>
+                            <span>Hyprland</span>
+                            <span>KDE</span>
+                            <span>Red Team</span>
+                            <span>Blue Team</span>
+                            <span>Purple Team</span>
+                            <span class="skill-tag">Ricing</span>
+                        </div>
+                        <div class="scanline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Right Section -->
-		<section class="main-content">
-			<!-- Summary Section -->
-			<div class="summary">
-				<h4>Programmer</h4>
-				<h2>Josh Cinense</h2>
-				<p>
-					Experienced programmer skilled in multiple languages, adept
-					at problem-solving and creating user-friendly software
-					solutions. Strong communicator, adaptable team player.
-					Committed to innovation and exceeding expectations.
-				</p>
-			</div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Skills & Technologies
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Defense</h3>
+                    <div class="skill-tag-cloud">
+                        <span class="skill-tag">Web Exploitation</span>
+                        <span class="skill-tag">Cryptography</span>
+                        <span class="skill-tag">Reverse Engineering</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Cyber Defense</span>
+                        <span class="skill-tag">Ethical Hacking</span>
+                        <span class="skill-tag">Incident Response</span>
+                        <span class="skill-tag">Web Application Security</span>
+                        <span class="skill-tag">Log Analysis</span>
+                        <span class="skill-tag">Risk Assessment</span>
+                        <span class="skill-tag">Cyber Threat Intelligence (CTI)</span>
+                        <span class="skill-tag">Computer Forensics</span>
+                        <span class="skill-tag">Steganography</span>
+                        <span class="skill-tag">CTF</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Software & Web Development</h3>
+                    <div class="skill-tag-cloud">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Back-End Web Development</span>
+                        <span class="skill-tag">Object-Oriented Programming (OOP)</span>
+                        <span class="skill-tag">Database Administration</span>
+                        <span class="skill-tag">Version Control</span>
+                        <span class="skill-tag">Game Development</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">Operating Systems</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-briefcase"></i> Multimedia & Professional</h3>
+                    <div class="skill-tag-cloud">
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Team Management</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Event Management</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-bar-fill" data-width="90%"></div>
+            </div>
+        </div>
+    </section>
 
-			<!-- Project Section -->
-			<div class="certificates">
-				<h4>Certificates</h4>
-				<ol>
-					<li>
-						<a
-							href="https://www.credly.com/badges/76a40b3c-e6a1-431d-9933-56809e82e6db/public_url"
-							target="_blank"
-						>
-							Operating Systems Basics
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://www.credly.com/badges/68ecbac7-869f-4214-95cf-6eb22bc60975/public_url"
-							target="_blank"
-						>
-							Cyber Threat Management
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://www.credly.com/badges/3b1cd866-f152-4d2c-b74b-e006c5a8441e/public_url"
-							target="_blank"
-						>
-							Network Defense
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://www.credly.com/badges/473c1eee-04c3-47d2-adea-8beb9799e674/public_url"
-							target="_blank"
-						>
-							Python Essentials 1
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/1g6uxSfB51KdgdH7NT0A8UmgWc3cb3YsZ/view?usp=sharing"
-							target="_blank"
-						>
-							2nd Regional Cyber Security Conference
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/1x193VDDHuvDSxH79y1Qcs-W8S68nP1OR/view?usp=sharing"
-							target="_blank"
-						>
-							HACKFORGOV Cyber Challenge 2023 Region 3 Capture-The-Flag Competition (6th in Individual Ranking)
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/1y5uteuNSTWNRCpgx-ShwbR6LnvPmJiIN/view?usp=drive_link"
-							target="_blank"
-						>
-						HACKFORGOV 2024 Region 3 Capture-The-Flag Competition (10th in Individual Ranking)
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/11VxuBGEvFmjga03U-BJnUFMo6IEXLeWD/view?usp=sharing"
-							target="_blank"
-						>
-							Visual Graphic Design
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/1g2_9eIKiQcprtpD_e6fNZh8vLtGyNd4d/view?usp=sharing"
-							target="_blank"
-						>
-							5th Regional Assembly on Information Technology
-							Education
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://drive.google.com/file/d/1EW8RVi8BtUNYq9FKl7mxiOMX2kMZPyxO/view?usp=sharing"
-							target="_blank"
-						>
-							JPCS National for Academic Year 2023-2024
-						</a>
-					</li>
-				</ol>
-			</div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Experience
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>CyberSecurity OJT</h3>
+                            <span class="company">NEECO II Area I – CITET Department</span>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Conducted in-depth vulnerability assessments and penetration testing on web and network infrastructure.</li>
+                                <li>Identified and analyzed security flaws, documented risks, and proposed mitigation strategies.</li>
+                                <li>Developed a cybersecurity lab environment to simulate threats and test defenses.</li>
+                                <li>Produced technical and executive reports for stakeholders, highlighting findings and recommendations.</li>
+                                <li>Participated in consultations focused on security architecture and infrastructure hardening.</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">Pen-Testing</span>
+                            <span class="tech-tag">Vulnerability Assessment</span>
+                            <span class="tech-tag">Risk Assessment</span>
+                            <span class="tech-tag">Infrastructure Hardening</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Full Stack Web Developer & System Administrator</h3>
+                            <span class="company">Romel Garcia Digital Video and Photography</span>
+                        </div>
+                        <div class="job-description">
+                            <div class="company-desc">A photography company focused on delivering high-quality visual content and creative storytelling for events and milestones.</div>
+                            <ul>
+                                <li>Developed and maintained the company website, ensuring a user-friendly interface and optimal performance.</li>
+                                <li>Managed website hosting and server administration, ensuring minimal downtime and quick load times.</li>
+                                <li>Collaborated with the photography team to showcase their portfolio effectively online.</li>
+                                <li>Updated website content regularly to reflect current services and promotions.</li>
+                                <li>Designed, developed, and managed backend infrastructure, including database architecture, API integrations, and server administration.</li>
+                                <li>Built and optimized a scalable database system to efficiently store, manage, and serve high-resolution media.</li>
+                                <li>Implemented high-performance backend solutions, ensuring fast load times, security, and reliability.</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">Full-Stack Dev</span>
+                            <span class="tech-tag">System Admin</span>
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">Database Arch.</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Lead Developer – Work Immersion Website</h3>
+                            <span class="company">Dr. Ramon De Santos National High School</span>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Led and managed all technical components of the Work Immersion website, including backend logic, database design, UI/UX planning, hosting, and deployment.</li>
+                                <li>Acted as project lead, coordinating the team and ensuring timely delivery of a fully functional system.</li>
+                                <li>Oversaw technical architecture while delegating front-end development and documentation tasks to teammates.</li>
+                                <li>Delivered a production-ready website tailored to the school's requirements and usability goals.</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">Lead Developer</span>
+                            <span class="tech-tag">Project Management</span>
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">UI/UX</span>
+                            <span class="tech-tag">Deployment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<!-- Work experience section -->
-			<div class="work-experience">
-				<h4>Work Experience</h4>
-				<div class="experience">
-					<!-- 1st work experience -->
-					<h3>
-						Game Development <span class="subtitle">Freelance</span>
-					</h3>
-					<p>
-						| Philippines
-					</p>
-					<ul>
-						<li>
-							Created visually appealing graphics, animations, and
-							special effects for the game.
-						</li>
-						<li>
-							Designed and implement engaging game levels and
-							environments, considering gameplay mechanics and
-							player interaction.
-						</li>
-						<li>
-							Brainstormed and implement creative ideas to enhance
-							gameplay features and mechanics.
-						</li>
-						<li>
-							Managed the project independently, including
-							tracking progress and meeting self-imposed
-							deadlines.
-						</li>
-					</ul>
-				</div>
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Licenses & Certifications
+            </h2>
+            <div class="cert-scroll-wrapper">
+                <button class="cert-arrow cert-arrow-left" aria-label="Scroll left" tabindex="0"><i class="fas fa-chevron-left"></i></button>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">MetaCTF Flash CTF (Top 17%)</h4>
+                            <span class="cert-issuer">MetaCTF</span>
+                            <span class="cert-date">Issued Jan 2025</span>
+                        </div>
+                        <div class="cert-desc">Ranked 163rd out of 1000 participants (C4STL3). Certificate of Participation.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Reverse Engineering</span>
+                            <span class="skill-tag">Cryptography</span>
+                            <span class="skill-tag">Web Exploitation</span>
+                            <span class="skill-tag">Cyber Security</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">SOC Member</h4>
+                            <span class="cert-issuer">LetsDefend</span>
+                            <span class="cert-date">Issued Dec 2024</span>
+                        </div>
+                        <div class="cert-desc">Active member of the LetsDefend Security Operations Center.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">Log Analysis</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Security Concepts in Azure</h4>
+                            <span class="cert-issuer">STYAVA.DEV</span>
+                            <span class="cert-date">Issued Nov 2024</span>
+                        </div>
+                        <div class="cert-desc">Covered Azure DevOps, Azure SQL, and core security concepts.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Azure DevOps</span>
+                            <span class="skill-tag">Microsoft Azure</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Building a Cybersecurity Career: Navigating the Job</h4>
+                            <span class="cert-issuer">Xaltius Academy</span>
+                            <span class="cert-date">Issued Oct 2024</span>
+                        </div>
+                        <div class="cert-desc">Completed a career-focused cybersecurity program.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Ethical Hacking</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Operating Systems Basics</h4>
+                            <span class="cert-issuer">Cisco</span>
+                            <span class="cert-date">Issued Apr 2024</span>
+                        </div>
+                        <div class="cert-desc">Core concepts of Linux and operating systems.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Operating Systems</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4 class="cert-title">HACKFORGOV 2024 Region 3 CTF (10th Place)</h4>
+                            <span class="cert-issuer">DICT - Philippines</span>
+                            <span class="cert-date">Issued Jun 2024</span>
+                        </div>
+                        <div class="cert-desc">10th in Individual Ranking, Region 3 Capture-The-Flag Competition.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">CTI</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">Reverse Engineering</span>
+                            <span class="skill-tag">Cryptography</span>
+                            <span class="skill-tag">Steganography</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Operating Systems Basics</h4>
+                            <span class="cert-issuer">Cisco</span>
+                            <span class="cert-date">Issued Apr 2024</span>
+                        </div>
+                        <div class="cert-desc">Core concepts of Linux and operating systems.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Operating Systems</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Network Defense</h4>
+                            <span class="cert-issuer">Cisco</span>
+                            <span class="cert-date">Issued Jan 2024</span>
+                        </div>
+                        <div class="cert-desc">Network protocols, troubleshooting, and information security.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">Network Protocols</span>
+                            <span class="skill-tag">Information Security</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Cyber Threat Management</h4>
+                            <span class="cert-issuer">Cisco</span>
+                            <span class="cert-date">Issued Nov 2023</span>
+                        </div>
+                        <div class="cert-desc">Risk assessment and threat intelligence.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">CTI</span>
+                            <span class="skill-tag">Information Security</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">Python Programming Essentials</h4>
+                            <span class="cert-issuer">DICT - Philippines</span>
+                            <span class="cert-date">Issued Nov 2023</span>
+                        </div>
+                        <div class="cert-desc">Certificate of Completion. Focused on Python, problem solving, and critical thinking.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Critical Thinking</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">HACKFORGOV Cyber Challenge 2023 Region 3 CTF (6th Place)</h4>
+                            <span class="cert-issuer">DICT - Philippines</span>
+                            <span class="cert-date">Issued Sep 2023</span>
+                        </div>
+                        <div class="cert-desc">6th in Individual Ranking, Region 3 Capture-The-Flag Competition.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">CTI</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">CTF</span>
+                            <span class="skill-tag">Cyber Defense</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">2nd Regional Cyber Security Conference</h4>
+                            <span class="cert-issuer">Holy Angel University</span>
+                            <span class="cert-date">Issued May 2023</span>
+                        </div>
+                        <div class="cert-desc">"Building A Resilient Future through Cyber Education: Be Secured. Stay Secured"</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Computer Forensics</span>
+                            <span class="skill-tag">CTI</span>
+                            <span class="skill-tag">CTF</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">JPCS Special Projects Director (2023-2024)</h4>
+                            <span class="cert-issuer">Philippine Computer Society</span>
+                            <span class="cert-date">Issued Jan 2023</span>
+                        </div>
+                        <div class="cert-desc">Special Projects Director at JPCS National for Academic Year 2023-2024.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Teamwork</span>
+                            <span class="skill-tag">Communication</span>
+                        </div>
+                    </div>
+                    <div class="cert-card glitch">
+                        <div class="cert-header">
+                            <h4 class="cert-title">5th Regional Assembly on Information Technology Education (Video Editing)</h4>
+                            <span class="cert-issuer">PSITE Central Luzon</span>
+                            <span class="cert-date">Issued Oct 2022</span>
+                        </div>
+                        <div class="cert-desc">Video editing for the 5th Regional Assembly on ITE.</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Cinematography</span>
+                            <span class="skill-tag">Video Editing</span>
+                            <span class="skill-tag">Video Production</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="cert-arrow cert-arrow-right" aria-label="Scroll right" tabindex="0"><i class="fas fa-chevron-right"></i></button>
+                <div class="cert-scroll-indicator"><span class="scroll-icon"><i class="fas fa-arrows-alt-h"></i> Scroll</span></div>
+            </div>
+        </div>
+    </section>
 
-				<div class="experience">
-					<!-- 2nd work experience -->
-					<h3>
-						Visual Graphic Design, Video Editing, and Animation
-						<span class="subtitle">Freelance</span>
-					</h3>
-					<p>
-						| Philippines
-					</p>
-					<ul>
-						<li>
-							Utilized extensive knowledge of Adobe Photoshop,
-							Animate, and Illustrator to create high-quality
-							images, illustrations, videos, and animations.
-						</li>
-						<li>
-							Presented creative design work, took constructive
-							feedback and worked towards positive outcomes.
-						</li>
-						<li>
-							Developed and communicated creative ideas,
-							presenting to team with clarity and enthusiasm.
-						</li>
-						<li>
-							Produced complex illustrations, animations, and
-							videos, satisfying clients' briefs.
-						</li>
-						<li>
-							Checked videos for corruption and ensured media
-							rendered correctly
-						</li>
-						<li>
-							Analyzed all video content for quality control and
-							made editorial corrections
-						</li>
-						<li>
-							Worked with graphic design teams to create
-							animations and other required graphics
-						</li>
-					</ul>
-				</div>
-				<div class="experience">
-					<h3>
-						School Work Automation
-						<span class="subtitle">Freelance</span>
-					</h3>
-					<p>| Philippines</p>
-					<ul>
-						<li>
-							Developed and implemented automated systems to
-							simplify repetitive tasks, such as grading
-							assignments, generating reports, and managing
-							student records.
-						</li>
-						<li>
-							Designed user-friendly interfaces and workflows that
-							allow teachers to easily navigate and utilize the
-							automation tools, saving them time and reducing
-							administrative burden.
-						</li>
-						<li>
-							Collaborated with teachers to understand their
-							specific needs and requirements, customizing the
-							automation solutions to align with their unique
-							classroom dynamics.
-						</li>
-						<li>
-							Provided training and support to teachers, ensuring
-							smooth adoption and utilization of the automation
-							tools, and addressing any technical issues or
-							questions.
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- Education section -->
-			<div class="education">
-				<h3>Education</h3>
-				<h4 class="subtitle">Our Lady of the Sacred Heart College</h4>
-				<h4>Bachelor Of Science in Information Technology</h4>
-				<p>2021 - Present | Philippines</p>
-			</div>
-		</section>
-	</body>
-</html>
+    <!-- Education Section -->
+    <section id="education" class="education section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Education
+            </h2>
+            <div class="terminal-card">
+                <div class="terminal-header-small">
+                    <span class="terminal-btn close"></span>
+                    <span class="terminal-btn minimize"></span>
+                    <span class="terminal-btn maximize"></span>
+                </div>
+                <div class="terminal-content">
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cat education.txt</span>
+                    </div>
+                    <div class="output">
+                        <ul class="facts-list">
+                            <li><i class="fas fa-university"></i> Our Lady of the Sacred Heart College of Guimba Inc.</li>
+                            <li><i class="fas fa-graduation-cap"></i> Bachelor of Science in Information Technology, Cum Laude</li>
+                            <li><i class="fas fa-users"></i> JPCS – OLSHCO Chapter: Special Projects Director</li>
+                        </ul>
+                    </div>
+                    <div class="scanline"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-summary">
+                        <p><span class="about-hi neon-glow">Hi, I'm <span class="about-name">Josh V. Cinense</span>.</span> <br>
+                        <span class="about-role">Cybersecurity Specialist & Full Stack Developer</span> based in <span class="about-location">Guimba, Central Luzon, Philippines</span>.<br>
+                        I love building secure systems, ricing Linux, and competing in CTFs. Always hacking, always learning.</p>
+                        <div class="about-links">
+                            <a href="https://github.com/JASHiNSENNiN" class="about-github-link" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> github.com/JASHiNSENNiN
+                            </a>
+                            <a href="https://www.linkedin.com/in/cinense-josh-vengco/" class="about-linkedin-link" target="_blank" rel="noopener">
+                                <i class="fab fa-linkedin"></i> linkedin.com/in/cinense-josh-vengco
+                            </a>
+                        </div>
+                    </div>
+                    <div class="code-block custom-hackery">
+                        <pre>const aboutMe = &#123;
+  name: "Josh V. Cinense",
+  role: "Cybersecurity Specialist & Full Stack Developer",
+  location: "Guimba, PH",
+  skills: ["PenTesting", "Python", "Linux", "CTF"],
+  interests: ["Linux Ricing", "Game Dev"]
+&#125;;</pre>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="terminal-card">
+                        <div class="terminal-header-small">
+                            <span class="terminal-btn close"></span>
+                            <span class="terminal-btn minimize"></span>
+                            <span class="terminal-btn maximize"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat quick_facts.txt</span>
+                            </div>
+                            <div class="output">
+                                <ul class="facts-list">
+                                    <li><i class="fas fa-map-marker-alt"></i> Philippines</li>
+                                    <li><i class="fas fa-graduation-cap"></i> BS Information Technology (Cum Laude)</li>
+                                    <li><i class="fas fa-shield-alt"></i> Cybersecurity Specialist</li>
+                                    <li><i class="fas fa-flag"></i> CTF Player</li>
+                                </ul>
+                            </div>
+                            <div class="scanline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-fade" style="background: transparent;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="code-comment">//</span> Get In Touch
+            </h2>
+            <div class="contact-terminal-prompt" style="font-family:'JetBrains Mono',monospace;font-size:1.3em;color:#00ff41;text-shadow:0 0 12px #00ff41cc,0 0 32px #00ff41aa;letter-spacing:0.01em;animation:ascii-glow 2.2s infinite alternate;margin:0 auto 0.7em auto;text-align:center;max-width:700px;">
+                $ <span class="command">echo "Let's connect!"</span>
+            </div>
+            <div class="contact-intro-message" style="margin:0 auto 1.2em auto;font-size:1.13em;color:#00ff41;text-shadow:0 0 8px #00ff41cc;max-width:700px;line-height:1.5;text-align:center;">
+                I'm always open to new opportunities, collaborations, or just a good chat.<br>
+                <span class="contact-intro-underline" style="display:inline-block;width:100%;height:2px;background:linear-gradient(90deg,transparent,#00ff41 60%,transparent);opacity:0.22;margin:0.3em 0 0.3em 0;animation:scanline-move 2.5s linear infinite;"></span>
+                Feel free to reach out through any of the options below!
+            </div>
+            <div class="contact-links-flex" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.2em 1.5em;margin:0 auto 1.5em auto;max-width:900px;">
+                <a href="https://www.linkedin.com/in/cinense-josh-vengco/" class="btn btn-secondary contact-link-btn" target="_blank" rel="noopener" style="font-size:1.13em;min-width:180px;display:flex;align-items:center;gap:0.7em;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/JASHiNSENNiN" class="btn btn-secondary contact-link-btn" target="_blank" rel="noopener" style="font-size:1.13em;min-width:180px;display:flex;align-items:center;gap:0.7em;"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.facebook.com/JASHiN21" class="btn btn-secondary contact-link-btn" target="_blank" rel="noopener" style="font-size:1.13em;min-width:180px;display:flex;align-items:center;gap:0.7em;"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+            <!-- Contact copy rows: no box, aligned -->
+            <div class="contact-copy-group" style="display:flex;flex-direction:column;align-items:stretch;gap:0.7em;margin:0 auto 1.5em auto;max-width:420px;width:100%;">
+              <div class="contact-copy-row" style="display:flex;align-items:center;justify-content:space-between;gap:0.7em;width:100%;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:1.08em;color:#00ff41;display:flex;align-items:center;"><i class="fas fa-envelope" style="margin-right:0.4em;"></i> jacercinense@gmail.com</span>
+                <div style="display:flex;align-items:center;gap:0.3em;">
+                  <button id="copy-email" class="btn btn-secondary" style="padding:0.3em 0.8em;font-size:0.95em;line-height:1.1;background:#181a1b;color:#00ff41;border:1.5px solid #00ff41;box-shadow:0 0 8px #00ff4133;"><i class="fas fa-copy"></i> Copy</button>
+                  <span id="email-copied" style="display:none;color:#00ff41;font-size:0.95em;">Copied!</span>
+                </div>
+              </div>
+              <div class="contact-copy-row" style="display:flex;align-items:center;justify-content:space-between;gap:0.7em;width:100%;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:1.08em;color:#ffb300;display:flex;align-items:center;"><i class="fas fa-phone" style="margin-right:0.4em;"></i> +63 926 900 3279</span>
+                <div style="display:flex;align-items:center;gap:0.3em;">
+                  <button id="copy-phone" class="btn btn-secondary" style="padding:0.3em 0.8em;font-size:0.95em;line-height:1.1;background:#181a1b;color:#ffb300;border:1.5px solid #ffb300;box-shadow:0 0 8px #ffb30033;"><i class="fas fa-copy"></i> Copy</button>
+                  <span id="phone-copied" style="display:none;color:#ffb300;font-size:0.95em;">Copied!</span>
+                </div>
+              </div>
+              <div class="contact-copy-row" style="display:flex;align-items:center;justify-content:space-between;gap:0.7em;width:100%;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:1.08em;color:#5865F2;display:flex;align-items:center;"><i class="fab fa-discord" style="margin-right:0.4em;"></i> _j4shin</span>
+                <div style="display:flex;align-items:center;gap:0.3em;">
+                  <button id="copy-discord" class="btn btn-secondary" style="padding:0.3em 0.8em;font-size:0.95em;line-height:1.1;background:#232946;color:#5865F2;border:1.5px solid #5865F2;box-shadow:0 0 8px #5865F2cc;"><i class="fas fa-copy"></i> Copy</button>
+                  <span id="discord-copied" style="display:none;color:#5865F2;font-size:0.95em;">Copied!</span>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: #181a1b; border-top: 1.5px solid #00ff41; color: #b0b0b0;">
+        <div class="footer-scanline"></div>
+        <div class="footer-bar">
+            
+            <div class="footer-right">
+                <a href="https://github.com/JASHiNSENNiN" target="_blank" class="footer-link" title="GitHub">
+                    <i class="fab fa-github"></i> github
+                </a>
+                <a href="https://www.linkedin.com/in/cinense-josh-vengco/" target="_blank" class="footer-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i> linkedin
+                </a>
+                
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="footer-year"></span> Josh V. Cinense. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html> 
