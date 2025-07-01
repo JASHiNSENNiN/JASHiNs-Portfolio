@@ -19,14 +19,24 @@ html, body {
     --term-border: #00ff41;
     --term-shadow: 0 4px 32px 0 #00ff4122, 0 1.5px 8px 0 #000a;
     --term-radius: 12px;
+    --bg-main: #101010;
+    --bg-card: rgba(24, 26, 27, 0.72);
+    --border-card: #00ff41;
+    --shadow-card: 0 8px 32px 0 #00ff4133, 0 1.5px 8px 0 #000a;
+    --accent: #00ff41;
+    --accent2: #00bfff;
+    --text-main: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --glass-blur: blur(18px) saturate(1.2);
 }
 
 body {
-    background: var(--term-bg);
-    color: var(--term-white);
+    background: var(--bg-main);
+    color: var(--text-main);
     font-family: 'JetBrains Mono', 'Fira Code', 'Fira Mono', monospace;
     min-height: 100vh;
     position: relative;
+    transition: background 0.5s, color 0.5s;
 }
 
 /* Remove wallpaper gradient and glassmorphism */
@@ -34,15 +44,17 @@ body::before, .system-bar { display: none !important; }
 
 /* Terminal Window/Card Styles */
 .terminal-window, .terminal-card, .code-block, .project-card, .cert-card {
-    background: var(--term-surface);
-    border-radius: var(--term-radius);
-    border: 1.5px solid var(--term-border);
-    box-shadow: var(--term-shadow);
-    color: var(--term-white);
-    font-family: inherit;
-    margin-bottom: 2.2rem;
+    background: var(--bg-card);
+    border-radius: 18px;
+    border: 1.5px solid var(--border-card);
+    box-shadow: var(--shadow-card), 0 0 0 2px rgba(0,255,65,0.04) inset;
+    color: var(--text-main);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.25s, border-color 0.25s, background 0.25s, transform 0.18s, filter 0.18s, color 0.5s;
+    padding: 2.2rem 2rem 2rem 2rem;
 }
 .terminal-header-small, .terminal-header {
     background: #181a1b;
@@ -67,7 +79,7 @@ body::before, .system-bar { display: none !important; }
 
 /* Section Titles - Terminal Prompt Style */
 .section-title {
-    color: var(--term-green);
+    color: var(--accent) !important;
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 2.2rem;
@@ -76,6 +88,7 @@ body::before, .system-bar { display: none !important; }
     display: flex;
     align-items: center;
     gap: 0.5em;
+    text-shadow: 0 0 8px var(--accent)99, 0 0 16px var(--accent2)44;
 }
 .section-title::before {
     content: '$';
@@ -119,38 +132,39 @@ body::before, .system-bar { display: none !important; }
 
 /* Terminal Buttons */
 .btn, .btn-primary, .btn-secondary {
-    background: var(--term-green);
-    color: #101010;
+    background: var(--accent);
+    color: var(--bg-main);
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 0.7em 2.1em;
     font-size: 1.08em;
     font-family: inherit;
     font-weight: 600;
-    box-shadow: 0 2px 12px 0 var(--term-green)22;
+    box-shadow: 0 2px 12px 0 var(--accent)22;
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s, color 0.2s;
     position: relative;
     overflow: hidden;
 }
 .btn:hover, .btn:focus {
-    background: #00e63a;
+    background: var(--accent2);
     color: #fff;
-    box-shadow: 0 4px 24px 0 var(--term-green)44;
+    box-shadow: 0 4px 24px 0 var(--accent)44;
 }
 
 /* Tag/Chip Styles */
 .skill-tag, .project-tag, .cert-tag {
-    display: inline-block;
-    background: #181a1b;
-    color: var(--term-green);
-    border-radius: 6px;
-    padding: 0.2em 0.9em;
-    font-size: 0.98em;
-    margin: 0.15em 0.3em 0.15em 0;
-    font-weight: 500;
-    box-shadow: 0 1px 4px #0002;
-    border: 1px solid var(--term-green)33;
+    background: rgba(0,0,0,0.12);
+    color: var(--accent);
+    border: 1px solid var(--accent)33;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.skill-tag:hover, .project-tag:hover, .cert-tag:hover {
+    background: var(--accent);
+    color: var(--bg-main);
+    transform: scale(1.08);
+    box-shadow: 0 2px 12px var(--accent)33;
 }
 
 /* Nav and Footer */
@@ -509,7 +523,7 @@ body::before, .system-bar { display: none !important; }
         background: linear-gradient(90deg, transparent, #00ff41 60%, transparent);
         opacity: 0.32;
         animation: scanline-move 2.5s linear infinite, scanline-flicker 2.2s steps(10, end) infinite;
-        border-radius: 0 0 1em 1em;
+        border-radius: 0 0 1em 1.5em;
         z-index: 2;
     }
 }
@@ -770,12 +784,14 @@ section {
 /* Section fade-in/slide-in */
 .section-fade {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.9s cubic-bezier(.77,0,.18,1), transform 0.9s cubic-bezier(.77,0,.18,1), filter 0.5s;
+    filter: blur(2px) brightness(0.95);
 }
 .section-fade.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0) brightness(1.01) drop-shadow(0 0 8px var(--accent)22);
 }
 
 /* Neon Glow Accent (animated) */
@@ -1787,16 +1803,33 @@ section {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 .section-fade.visible, .project-card.visible, .cert-card.visible, .terminal-card.visible {
-  animation: fadeInBounce 0.9s cubic-bezier(.77,0,.18,1) both;
+  animation: fadeInBounce 0.9s cubic-bezier(.77,0,.18,1) both, glitchyAppear 0.3s linear 1;
+}
+@keyframes glitchyAppear {
+  0% { filter: none; }
+  20% { filter: blur(1.5px) hue-rotate(10deg); transform: translateX(-4px) scale(1.01); }
+  40% { filter: blur(0.5px) hue-rotate(-10deg); transform: translateX(4px) scale(0.99); }
+  60% { filter: none; }
+  80% { filter: blur(1px) hue-rotate(5deg); }
+  100% { filter: none; }
 }
 
+.glitch-animate {
+  animation: glitchyAppear 0.3s linear 1;
+}
+
+/* Make all transitions more terminal/hackery */
 .project-card, .cert-card, .terminal-card {
-  transition: box-shadow 0.3s, border-color 0.3s, background 0.3s, transform 0.25s cubic-bezier(.77,0,.18,1);
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s, transform 0.18s cubic-bezier(.77,0,.18,1), filter 0.18s, color 0.5s;
 }
 .project-card:hover, .cert-card:hover, .terminal-card:hover {
-  transform: scale(1.025) translateY(-6px);
-  box-shadow: 0 8px 40px 0 #00ff41cc, 0 1.5px 8px 0 rgba(0,0,0,0.18), 0 0 16px #00ff4199;
-  border-color: #00ff41;
+  filter: blur(0.5px) brightness(1.1) contrast(1.1) drop-shadow(0 0 8px #00ff41cc);
+  animation: glitch 0.4s linear 1;
+}
+
+/* Matrix rain tweaks for 1s and 0s */
+.matrix-rain {
+  opacity: 0.13 !important;
 }
 
 .btn {
@@ -3024,3 +3057,17 @@ section {
     100% { opacity: 1; }
 }
 .scroll-icon i { margin-right: 0.4em; }
+
+/* 1s and 0s particle effect */
+.binary-particle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2em;
+  color: #00ff41;
+  text-shadow: 0 0 8px #00ff41, 0 0 16px #00ff41;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1000;
+  user-select: none;
+  will-change: transform, opacity;
+  transition: opacity 0.3s, transform 0.3s;
+}

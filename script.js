@@ -14,9 +14,10 @@ function typeWriter(element, text, speed = 50) {
     type();
 }
 
-// Matrix rain effect
+// Matrix rain effect (1s and 0s only)
 function createMatrixRain() {
     const canvas = document.createElement('canvas');
+    canvas.className = 'matrix-rain';
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
@@ -24,18 +25,18 @@ function createMatrixRain() {
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '-1';
-    canvas.style.opacity = '0.03';
+    canvas.style.opacity = '0.08';
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+    const matrix = "10";
     const matrixArray = matrix.split("");
 
-    const fontSize = 10;
-    const columns = canvas.width / fontSize;
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
     const drops = [];
 
     for (let x = 0; x < columns; x++) {
@@ -43,24 +44,29 @@ function createMatrixRain() {
     }
 
     function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = '#00ff41';
-        ctx.font = fontSize + 'px monospace';
-
+        ctx.font = fontSize + 'px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
         for (let i = 0; i < drops.length; i++) {
+            ctx.fillStyle = '#00ff41';
             const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+            ctx.shadowColor = '#00ff41';
+            ctx.shadowBlur = 8;
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
+            ctx.shadowBlur = 0;
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
             }
             drops[i]++;
         }
     }
-
     setInterval(draw, 35);
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 }
 
 // Terminal-style mobile nav panel
@@ -243,49 +249,51 @@ function addGlitchEffect() {
     });
 }
 
-// Particle effect for buttons
+// 1s and 0s particle effect for buttons
 function addParticleEffect() {
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('click', (e) => {
-            const particles = 10;
+            const particles = 16;
             for (let i = 0; i < particles; i++) {
-                createParticle(e.target, e.clientX, e.clientY);
+                createBinaryParticle(e.target, e.clientX, e.clientY);
             }
         });
     });
 }
 
-function createParticle(button, x, y) {
+function createBinaryParticle(button, x, y) {
     const particle = document.createElement('div');
+    particle.textContent = Math.random() > 0.5 ? '1' : '0';
     particle.style.position = 'fixed';
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
-    particle.style.width = '4px';
-    particle.style.height = '4px';
-    particle.style.background = '#00ff41';
-    particle.style.borderRadius = '50%';
+    particle.style.fontFamily = 'JetBrains Mono, monospace';
+    particle.style.fontSize = '1.2em';
+    particle.style.color = '#00ff41';
+    particle.style.textShadow = '0 0 8px #00ff41, 0 0 16px #00ff41';
     particle.style.pointerEvents = 'none';
     particle.style.zIndex = '1000';
     document.body.appendChild(particle);
 
     const angle = Math.random() * Math.PI * 2;
-    const velocity = Math.random() * 5 + 2;
+    const velocity = Math.random() * 6 + 2;
     const vx = Math.cos(angle) * velocity;
     const vy = Math.sin(angle) * velocity;
-
     let opacity = 1;
-    const animate = () => {
-        if (opacity <= 0) {
+    let life = 0;
+    function animate() {
+        if (opacity <= 0 || life > 40) {
             particle.remove();
             return;
         }
-        opacity -= 0.02;
+        opacity -= 0.025;
         particle.style.opacity = opacity;
         particle.style.left = parseFloat(particle.style.left) + vx + 'px';
         particle.style.top = parseFloat(particle.style.top) + vy + 'px';
+        life++;
         requestAnimationFrame(animate);
-    };
+    }
     animate();
 }
 
@@ -396,46 +404,127 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            
-            // Add glitch effect on scroll
-            if (entry.target.classList.contains('project-card')) {
-                entry.target.style.animation = 'glitch 0.3s ease';
-            }
+            entry.target.classList.add('glitch-animate');
+            setTimeout(() => entry.target.classList.remove('glitch-animate'), 400);
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize matrix rain
-    createMatrixRain();
-    
-    // Initialize terminal commands
-    simulateTerminalCommands();
-    
-    // Add glitch effects
-    addGlitchEffect();
-    
-    // Add particle effects
-    addParticleEffect();
-    
-    const animateElements = document.querySelectorAll('.project-card, .skill-category, .timeline-item, .about-stats .stat');
-    
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+// Remove theme toggle and theme switching logic
+// Remove addThemeToggle, applySavedTheme, animateThemeToggleIcon, and theme toggle DOM logic from DOMContentLoaded
+
+// --- 3D Parallax & Neon Glow for Cards ---
+function addParallaxToCards() {
+  const cards = document.querySelectorAll('.project-card, .cert-card, .terminal-card, .contact-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 7;
+      const rotateY = ((x - centerX) / centerX) * -7;
+      card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+      card.classList.add('parallax-glow');
     });
-    
-    // Initialize typing animation for hero
-    const heroTitle = document.querySelector('.profile-info h1');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
-        }, 1000);
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.classList.remove('parallax-glow');
+    });
+    card.addEventListener('focus', () => card.classList.add('parallax-glow'));
+    card.addEventListener('blur', () => card.classList.remove('parallax-glow'));
+  });
+}
+
+// --- Staggered Animation Classes ---
+function addStaggerClasses() {
+  // Project cards
+  document.querySelectorAll('.projects-grid .project-card').forEach(card => card.classList.add('stagger'));
+  // Skill categories
+  document.querySelectorAll('.skills-grid .skill-category').forEach(el => el.classList.add('stagger'));
+  // Timeline items
+  document.querySelectorAll('.timeline .timeline-item').forEach(el => el.classList.add('stagger'));
+  // About stats
+  document.querySelectorAll('.about-stats .stat').forEach(el => el.classList.add('stagger'));
+}
+
+// --- Matrix Rain Parallax ---
+function addMatrixRainParallax() {
+  const canvas = document.querySelector('.matrix-rain');
+  if (!canvas) return;
+  let lastScroll = window.scrollY;
+  function animate() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const offset = window.scrollY * 0.12;
+    canvas.style.transform = `translateY(${offset}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// --- Global Parallax Effect with Mouse Cursor ---
+function addGlobalParallaxEffect() {
+  // Select main sections for parallax
+  const parallaxSections = [
+    document.querySelector('.hero'),
+    document.querySelector('.projects'),
+    document.querySelector('.skills'),
+    document.querySelector('.experience'),
+    document.querySelector('.certifications'),
+    document.querySelector('.education'),
+    document.querySelector('.about'),
+    document.querySelector('.contact')
+  ].filter(Boolean);
+
+  let mouseX = 0, mouseY = 0;
+  let targetX = 0, targetY = 0;
+  let ticking = false;
+
+  function onMouseMove(e) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    // Normalize mouse position to [-1, 1]
+    targetX = ((e.clientX / w) - 0.5) * 2;
+    targetY = ((e.clientY / h) - 0.5) * 2;
+    if (!ticking) {
+      requestAnimationFrame(applyParallax);
+      ticking = true;
     }
+  }
+
+  function applyParallax() {
+    // Smoother interpolation (less bounce)
+    mouseX += (targetX - mouseX) * 0.04;
+    mouseY += (targetY - mouseY) * 0.04;
+    // Lower parallax strength (less movement)
+    const strength = 10;
+    parallaxSections.forEach(section => {
+      section.style.transform = `translate3d(${mouseX * strength}px, ${mouseY * strength}px, 0)`;
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('mousemove', onMouseMove);
+  // Reset on mouse leave
+  window.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+  });
+}
+
+// --- Main Init (add to DOMContentLoaded) ---
+document.addEventListener('DOMContentLoaded', () => {
+  createMatrixRain();
+  simulateTerminalCommands();
+  addGlitchEffect();
+  removeOverTheTopEffects();
+  addParallaxToCards();
+  addStaggerClasses();
+  addMatrixRainParallax();
+  addGlobalParallaxEffect();
+  // ... rest of your code ...
 });
 
 // Skill progress animation trigger
@@ -751,6 +840,10 @@ document.addEventListener('DOMContentLoaded', function() {
     grid.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
   }
 
+  // Always enable arrow button events (not just mobile)
+  if (left) left.addEventListener('click', () => { scrollByCard(-1); pauseAutoScroll(); });
+  if (right) right.addEventListener('click', () => { scrollByCard(1); pauseAutoScroll(); });
+
   function startAutoScroll() {
     if (!isMobile() || !grid) return;
     stopAutoScroll();
@@ -794,8 +887,6 @@ document.addEventListener('DOMContentLoaded', function() {
       right.addEventListener(evt, resumeAutoScroll);
     });
     grid.addEventListener('wheel', () => pauseAutoScroll());
-    left.addEventListener('click', () => { scrollByCard(-1); pauseAutoScroll(); });
-    right.addEventListener('click', () => { scrollByCard(1); pauseAutoScroll(); });
     grid.addEventListener('touchstart', () => { isUserScrolling = true; });
     grid.addEventListener('touchend', () => { isUserScrolling = false; });
     startAutoScroll();
