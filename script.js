@@ -782,7 +782,7 @@ document.head.appendChild(style);
     if (i < text.length) {
       code.textContent += text[i];
       i++;
-      setTimeout(type, 18 + Math.random() * 40);
+      setTimeout(type, 6 + Math.random() * 12);
     } else {
       code.classList.add('blinking-cursor');
     }
@@ -808,121 +808,76 @@ document.head.appendChild(style);
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-// Discord copy-to-clipboard for contact section
-const copyDiscordBtn = document.getElementById('copy-discord');
-if (copyDiscordBtn) {
-  copyDiscordBtn.addEventListener('click', function() {
-    navigator.clipboard.writeText('_j4shin');
-    const copied = document.getElementById('discord-copied');
-    if (copied) {
-      copied.style.display = 'inline';
-      setTimeout(() => { copied.style.display = 'none'; }, 1500);
+// === JS: MODULARITY, PROGRESSIVE ENHANCEMENT, MICRO-INTERACTIONS ===
+
+// Utility: ARIA live feedback
+function announce(msg) {
+  const live = document.getElementById('aria-live-feedback');
+  if (live) {
+    live.textContent = '';
+    setTimeout(() => { live.textContent = msg; }, 50);
+  }
+}
+
+// Copy-to-clipboard with ARIA feedback
+function setupCopyButtons() {
+  const copyConfigs = [
+    { btn: 'copy-email', value: 'jacercinense@gmail.com', feedback: 'Email copied to clipboard.' },
+    { btn: 'copy-phone', value: '+63 926 900 3279', feedback: 'Phone number copied to clipboard.' },
+    { btn: 'copy-discord', value: '_j4shin', feedback: 'Discord username copied to clipboard.' }
+  ];
+  copyConfigs.forEach(({ btn, value, feedback }) => {
+    const el = document.getElementById(btn);
+    if (el) {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(value);
+        announce(feedback);
+        // Show visual feedback
+        const copied = el.parentElement.querySelector('span[id$="-copied"]');
+        if (copied) {
+          copied.style.display = 'inline';
+          setTimeout(() => { copied.style.display = 'none'; }, 1200);
+        }
+      });
     }
   });
 }
 
-// Certifications auto-scroll and arrows (mobile only)
-document.addEventListener('DOMContentLoaded', function() {
+// Progressive enhancement: Only enhance if JS is enabled
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mainEnhancements);
+} else {
+  mainEnhancements();
+}
+
+function mainEnhancements() {
+  setupCopyButtons();
+
+  // Certifications carousel arrow buttons with Anime.js tweening and easing
   const grid = document.querySelector('.certifications-grid');
   const left = document.querySelector('.cert-arrow-left');
   const right = document.querySelector('.cert-arrow-right');
-  let autoScrollInterval, isUserScrolling = false, autoScrollPaused = false, holdTimeout = null;
-
-  function isMobile() {
-    return window.innerWidth <= 700;
-  }
-
   function scrollByCard(dir = 1) {
     if (!grid) return;
     const card = grid.querySelector('.cert-card');
     if (!card) return;
     const scrollAmount = card.offsetWidth + 16; // gap
-    grid.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
-  }
-
-  // Always enable arrow button events (not just mobile)
-  if (left) left.addEventListener('click', () => { scrollByCard(-1); pauseAutoScroll(); });
-  if (right) right.addEventListener('click', () => { scrollByCard(1); pauseAutoScroll(); });
-
-  function startAutoScroll() {
-    if (!isMobile() || !grid) return;
-    stopAutoScroll();
-    autoScrollInterval = setInterval(() => {
-      if (!autoScrollPaused) {
-        grid.scrollBy({ left: 1, behavior: 'auto' });
-        // Loop back to start if at end
-        if (grid.scrollLeft + grid.offsetWidth >= grid.scrollWidth - 2) {
-          grid.scrollTo({ left: 0, behavior: 'smooth' });
-        }
-      }
-    }, 18);
-  }
-  function stopAutoScroll() {
-    if (autoScrollInterval) clearInterval(autoScrollInterval);
-    autoScrollInterval = null;
-  }
-  function pauseAutoScroll(hold = false) {
-    autoScrollPaused = true;
-    if (holdTimeout) clearTimeout(holdTimeout);
-    if (!hold) {
-      holdTimeout = setTimeout(() => { autoScrollPaused = false; }, 2200);
+    const target = grid.scrollLeft + dir * scrollAmount;
+    if (typeof anime !== 'undefined') {
+      anime({
+        targets: grid,
+        scrollLeft: target,
+        duration: 700,
+        easing: 'easeInOutQuad'
+      });
+    } else {
+      grid.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
     }
   }
-  function resumeAutoScroll() {
-    autoScrollPaused = false;
+  if (left) {
+    left.addEventListener('click', () => scrollByCard(-1));
   }
-
-  if (grid && left && right && isMobile()) {
-    // Pause on tap, hold, drag, wheel, or arrow click
-    const pauseEvents = ['touchstart', 'mousedown', 'pointerdown'];
-    const resumeEvents = ['touchend', 'mouseup', 'pointerup', 'mouseleave'];
-    pauseEvents.forEach(evt => {
-      grid.addEventListener(evt, () => pauseAutoScroll(true));
-      left.addEventListener(evt, () => pauseAutoScroll(true));
-      right.addEventListener(evt, () => pauseAutoScroll(true));
-    });
-    resumeEvents.forEach(evt => {
-      grid.addEventListener(evt, resumeAutoScroll);
-      left.addEventListener(evt, resumeAutoScroll);
-      right.addEventListener(evt, resumeAutoScroll);
-    });
-    grid.addEventListener('wheel', () => pauseAutoScroll());
-    grid.addEventListener('touchstart', () => { isUserScrolling = true; });
-    grid.addEventListener('touchend', () => { isUserScrolling = false; });
-    startAutoScroll();
-    window.addEventListener('resize', () => {
-      if (isMobile()) startAutoScroll();
-      else stopAutoScroll();
-    });
+  if (right) {
+    right.addEventListener('click', () => scrollByCard(1));
   }
-});
-
-// Email and phone copy-to-clipboard for contact section
-const copyEmailBtn = document.getElementById('copy-email');
-if (copyEmailBtn) {
-  copyEmailBtn.addEventListener('click', function() {
-    navigator.clipboard.writeText('jacercinense@gmail.com');
-    const copied = document.getElementById('email-copied');
-    if (copied) {
-      copied.style.display = 'inline';
-      setTimeout(() => { copied.style.display = 'none'; }, 1500);
-    }
-    // Hide others
-    const phoneCopied = document.getElementById('phone-copied');
-    if (phoneCopied) phoneCopied.style.display = 'none';
-  });
-}
-const copyPhoneBtn = document.getElementById('copy-phone');
-if (copyPhoneBtn) {
-  copyPhoneBtn.addEventListener('click', function() {
-    navigator.clipboard.writeText('+639269003279');
-    const copied = document.getElementById('phone-copied');
-    if (copied) {
-      copied.style.display = 'inline';
-      setTimeout(() => { copied.style.display = 'none'; }, 1500);
-    }
-    // Hide others
-    const emailCopied = document.getElementById('email-copied');
-    if (emailCopied) emailCopied.style.display = 'none';
-  });
 } 

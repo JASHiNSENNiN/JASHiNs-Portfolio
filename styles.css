@@ -11,28 +11,55 @@ html, body {
 }
 
 :root {
-    --term-bg: #101010;
-    --term-surface: #181a1b;
-    --term-green: #00ff41;
-    --term-gray: #b0b0b0;
-    --term-white: #e0e0e0;
-    --term-border: #00ff41;
-    --term-shadow: 0 4px 32px 0 #00ff4122, 0 1.5px 8px 0 #000a;
-    --term-radius: 12px;
-    --bg-main: #101010;
-    --bg-card: rgba(24, 26, 27, 0.72);
-    --border-card: #00ff41;
-    --shadow-card: 0 8px 32px 0 #00ff4133, 0 1.5px 8px 0 #000a;
-    --accent: #00ff41;
-    --accent2: #00bfff;
-    --text-main: #e0e0e0;
-    --text-secondary: #b0b0b0;
-    --glass-blur: blur(18px) saturate(1.2);
+    /* Color palette */
+    --color-bg: #101010;
+    --color-surface: #181a1b;
+    --color-accent: #00ff41;
+    --color-accent2: #00bfff;
+    --color-text-main: #e0e0e0;
+    --color-text-secondary: #b0b0b0;
+    --color-error: #ff4444;
+    --color-success: #00ff41;
+    --color-border: #00ff41;
+    --color-card: rgba(24, 26, 27, 0.72);
+    --color-card-border: #00ff41;
+    --color-card-shadow: 0 8px 32px 0 #00ff4133, 0 1.5px 8px 0 #000a;
+    /* Spacing scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    /* Font scale */
+    --font-xs: 0.85rem;
+    --font-sm: 1rem;
+    --font-md: 1.25rem;
+    --font-lg: 1.5rem;
+    --font-xl: 2.5rem;
+    --font-family-main: 'Inter', Arial, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
+/* Utility classes */
+.m-0 { margin: 0 !important; }
+.mt-md { margin-top: var(--space-md) !important; }
+.mb-md { margin-bottom: var(--space-md) !important; }
+.p-md { padding: var(--space-md) !important; }
+.text-center { text-align: center !important; }
+.text-accent { color: var(--color-accent) !important; }
+.text-error { color: var(--color-error) !important; }
+.text-success { color: var(--color-success) !important; }
+
+/* Headings and font scale */
+h1, .h1 { font-size: var(--font-xl); font-family: var(--font-family-mono); font-weight: 700; }
+h2, .h2 { font-size: var(--font-lg); font-family: var(--font-family-mono); font-weight: 600; }
+h3, .h3 { font-size: var(--font-md); font-family: var(--font-family-mono); font-weight: 500; }
+h4, .h4 { font-size: var(--font-sm); font-family: var(--font-family-mono); font-weight: 500; }
+body, p, .body { font-size: var(--font-sm); font-family: var(--font-family-main); line-height: 1.5; color: var(--color-text-main); }
+
 body {
-    background: var(--bg-main);
-    color: var(--text-main);
+    background: var(--color-bg);
+    color: var(--color-text-main);
     font-family: 'JetBrains Mono', 'Fira Code', 'Fira Mono', monospace;
     min-height: 100vh;
     position: relative;
@@ -44,13 +71,13 @@ body::before, .system-bar { display: none !important; }
 
 /* Terminal Window/Card Styles */
 .terminal-window, .terminal-card, .code-block, .project-card, .cert-card {
-    background: var(--bg-card);
+    background: var(--color-card);
     border-radius: 18px;
-    border: 1.5px solid var(--border-card);
-    box-shadow: var(--shadow-card), 0 0 0 2px rgba(0,255,65,0.04) inset;
-    color: var(--text-main);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1.5px solid var(--color-card-border);
+    box-shadow: var(--color-card-shadow), 0 0 0 2px rgba(0,255,65,0.04) inset;
+    color: var(--color-text-main);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.25s, border-color 0.25s, background 0.25s, transform 0.18s, filter 0.18s, color 0.5s;
@@ -133,7 +160,7 @@ body::before, .system-bar { display: none !important; }
 /* Terminal Buttons */
 .btn, .btn-primary, .btn-secondary {
     background: var(--accent);
-    color: var(--bg-main);
+    color: var(--color-bg);
     border: none;
     border-radius: 8px;
     padding: 0.7em 2.1em;
@@ -162,7 +189,7 @@ body::before, .system-bar { display: none !important; }
 
 .skill-tag:hover, .project-tag:hover, .cert-tag:hover {
     background: var(--accent);
-    color: var(--bg-main);
+    color: var(--color-bg);
     transform: scale(1.08);
     box-shadow: 0 2px 12px var(--accent)33;
 }
@@ -1353,6 +1380,15 @@ section {
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
     transition: all 0.3s ease;
+    /* Ensure card stays a fixed size and content can scroll */
+    max-height: 420px;
+    min-height: 320px;
+    overflow: hidden;
+}
+.cert-card > *:not(.cert-header) {
+    /* Make the main content area scrollable if it overflows */
+    overflow-y: auto;
+    max-height: 220px;
 }
 
 .cert-card:hover {
@@ -1371,6 +1407,10 @@ section {
     color: #00ff41;
     font-size: 1.1rem;
     font-family: 'JetBrains Mono', monospace;
+    /* Add word wrap and break for long titles */
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .cert-issuer, .cert-date {
@@ -3070,4 +3110,14 @@ section {
   user-select: none;
   will-change: transform, opacity;
   transition: opacity 0.3s, transform 0.3s;
+}
+
+.highlight-cumlaude {
+  color: var(--color-accent);
+  font-weight: 600;
+  background: rgba(0,255,65,0.04);
+  border-radius: 0.2em;
+  padding: 0.05em 0.3em;
+  box-shadow: none;
+  /* No animation, just a gentle highlight */
 }
